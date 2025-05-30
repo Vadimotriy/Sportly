@@ -1,2 +1,1 @@
-# Activeo
-Activeo
+# Sportly
