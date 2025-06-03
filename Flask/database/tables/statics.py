@@ -9,10 +9,12 @@ class Statics(SqlAlchemyBase):
     __tablename__ = 'statics'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
-    num1 = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
-    num2 = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
-    date3 = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
-    bool4 = sqlalchemy.Column(sqlalchemy.Boolean, default=True)
+    task1 = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
+    task2 = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
+    task3 = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
     user = orm.relationship('User')
+
+    def __repr__(self):
+        return f'Id: {self.id}; User_id: {self.user_id}; Num1: {self.num1}; bool4: {self.bool4}'
