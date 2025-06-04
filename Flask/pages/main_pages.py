@@ -10,4 +10,6 @@ def main_pages(app):
     def index():
         db_sess = db_session.create_session()
         users = db_sess.query(User)
+        for user in users:
+            print(user.statics)
         return render_template("index.html", news=users)
