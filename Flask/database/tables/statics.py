@@ -17,4 +17,4 @@ class Statics(SqlAlchemyBase):
     user = orm.relationship('User')
 
     def __repr__(self):
-        return f'Id: {self.id}; User_id: {self.user_id}; Num1: {self.num1}; bool4: {self.bool4}'
+        return f'Id: {self.id}; User_id: {self.user_id}; task1: {self.task1}; task2: {self.task2}; task3: {self.task3}'

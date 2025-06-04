@@ -1,8 +1,8 @@
 import datetime
 import sqlalchemy
-from Flask.database.db_session import SqlAlchemyBase
 from sqlalchemy import orm
 
+from Flask.database.db_session import SqlAlchemyBase
 
 class User(SqlAlchemyBase):
     __tablename__ = 'users'
