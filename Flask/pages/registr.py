@@ -11,9 +11,7 @@ def registr(app, session):
 
     @app.route('/register', methods=['GET', 'POST'])
     def register():
-        print(request.method)
         if request.method == 'POST':
-            print(2)
             name = request.form['name']
             email = request.form['email']
             password = request.form['password']
@@ -54,10 +52,32 @@ def registr(app, session):
 
             except Exception as e:
                 print(e)
-        print(0)
+
         return render_template('register.html')
 
 
-    @app.route('/login', methods=['GET'])
+    @app.route('/login', methods=['GET', 'POST'])
     def login():
-        return "Страница входа (здесь будет форма входа)"
+        if request.method == 'POST':
+            email = request.form['email']
+            password = request.form['password']
+
+            errors = []
+
+            if not is_valid_email(email):
+                errors.append('Введите корректный email!')
+            if not session.query(User).filter_by(email=email).first():
+                errors.append('Пользователя с этим email не зарегистрирован!')
+            else:
+                user = session.query(User).filter_by(email=email).first()
+                if not user.check_password(password):
+                    errors.append('Неверный пароль!')
+
+            if errors:
+                for error in errors:
+                    flash(error, 'error')
+                return render_template('login.html', email=email, message=errors[0])
+
+            return redirect(url_for('index'))
+
+        return render_template('login.html')

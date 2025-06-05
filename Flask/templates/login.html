@@ -4,22 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация | Sportly</title>
+    <title>Вход | Sportly</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login_and_registr.css') }}">
 </head>
 
 <body>
     <main class="container">
         <div class="registration-card">
-            <h1 class="registration-title">Регистрация</h1>
+            <h1 class="registration-title">Вход</h1>
             <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
 
             <form id="registration-form" method="post">
-                <div class="input-group">
-                    <label for="name" class="input-label">Имя</label>
-                    <input type="text" id="name" class="input-field"
-                           placeholder="Введите ваше имя" name="name" required>
-                </div>
 
                 <div class="input-group">
                     <label for="email" class="input-label">Email</label>
@@ -33,17 +28,12 @@
                            placeholder="Не менее 8 символов" name="password" required>
                 </div>
 
-                <div class="input-group">
-                    <label for="confirm-password" class="input-label">Повторите пароль</label>
-                    <input type="password" id="confirm-password" class="input-field"
-                           placeholder="Повторите ваш пароль" name="password_again" required>
-                </div>
 
-                <div style="text-align: center"><button type="submit" class="submit-btn">Продолжить</button></div>
+                <div style="text-align: center"><button type="submit" class="submit-btn">Войти</button></div>
             </form>
 
             <div class="login-link">
-                Уже есть аккаунт? <a href="/login">Войти</a>
+                Нет аккаунта? <a href="/register">Зарегистрироваться</a>
             </div>
 
             <span class="login-link" style="text-align: left">{{ message }}</span>
