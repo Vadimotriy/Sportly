@@ -1,96 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация | Sportly</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <div class="register-container">
-        <div class="register-header">
-            <h2><i class="fas fa-heartbeat"></i> Начните свой путь к здоровью</h2>
-            <p>Присоединяйтесь к Sportly!</p>
-        </div>
+    <main class="container">
+        <div class="registration-card">
+            <h1 class="registration-title">Регистрация</h1>
+            <p>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</p>
 
-        <form class="register-form" method="POST" action="/register">
-            <!-- Общие ошибки формы -->
-            {% if form_errors %}
-                <div class="form-errors">
-                    {% for error in form_errors %}
-                        <div class="alert alert-danger">{{ error }}</div>
-                    {% endfor %}
+            <form id="registration-form" method="post">
+                <div class="input-group">
+                    <label for="name" class="input-label">Имя</label>
+                    <input type="text" id="name" class="input-field"
+                           placeholder="Введите ваше имя" name="name" required>
                 </div>
-            {% endif %}
 
-            <!-- Поле Имя -->
-            <div class="form-group">
-                <label for="name"><i class="fas fa-user"></i> Имя</label>
-                <input type="text"
-                       id="name"
-                       name="name"
-                       placeholder="Ваше имя"
-                       value="{{ name if name else '' }}"
-                       required
-                       class="{% if errors and 'name' in errors %}input-error{% endif %}">
-                {% if errors and 'name' in errors %}
-                    <div class="error-message">{{ errors['name'] }}</div>
-                {% endif %}
-            </div>
+                <div class="input-group">
+                    <label for="email" class="input-label">Email</label>
+                    <input type="email" id="email" class="input-field"
+                           placeholder="example@mail.com" name="email" required>
+                </div>
 
-            <!-- Поле Email -->
-            <div class="form-group">
-                <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                <input type="email"
-                       id="email"
-                       name="email"
-                       placeholder="example@mail.com"
-                       value="{{ email if email else '' }}"
-                       required
-                       class="{% if errors and 'email' in errors %}input-error{% endif %}">
-                {% if errors and 'email' in errors %}
-                    <div class="error-message">{{ errors['email'] }}</div>
-                {% endif %}
-            </div>
+                <div class="input-group">
+                    <label for="password" class="input-label">Пароль</label>
+                    <input type="password" id="password" class="input-field"
+                           placeholder="Не менее 8 символов" name="password" required>
+                </div>
 
-            <!-- Поле Пароль -->
-            <div class="form-group">
-                <label for="password"><i class="fas fa-lock"></i> Пароль</label>
-                <input type="password"
-                       id="password"
-                       name="password"
-                       placeholder="Не менее 8 символов"
-                       minlength="8"
-                       required
-                       class="{% if errors and 'password' in errors %}input-error{% endif %}">
-                {% if errors and 'password' in errors %}
-                    <div class="error-message">{{ errors['password'] }}</div>
-                {% endif %}
-            </div>
+                <div class="input-group">
+                    <label for="confirm-password" class="input-label">Повторите пароль</label>
+                    <input type="password" id="confirm-password" class="input-field"
+                           placeholder="Повторите ваш пароль" name="password_again" required>
+                </div>
 
-            <!-- Поле Повторить пароль -->
-            <div class="form-group">
-                <label for="password_again"><i class="fas fa-redo"></i> Повторите пароль</label>
-                <input type="password"
-                       id="password_again"
-                       name="password_again"
-                       placeholder="Повторите ваш пароль"
-                       required
-                       class="{% if errors and 'password_again' in errors %}input-error{% endif %}">
-                {% if errors and 'password_again' in errors %}
-                    <div class="error-message">{{ errors['password_again'] }}</div>
-                {% endif %}
-            </div>
-            
-            <button type="submit" class="btn-register">
-                <i class="fas fa-running"></i> Зарегистрироваться
-            </button>
-            
+                <div style="text-align: center"><button type="submit" class="submit-btn">Продолжить</button></div>
+            </form>
+
             <div class="login-link">
                 Уже есть аккаунт? <a href="/login">Войти</a>
             </div>
-        </form>
-    </div>
+
+            <span class="login-link" style="text-align: left">{{ message }}</span>
+        </div>
+    </main>
+
 </body>
 </html>

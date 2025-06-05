@@ -1,15 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
-
-from Flask.database import db_session
-from Flask.database.tables.users import User
-from Flask.database.tables.statics import Statics
+from Flask.database.database import User
 
 
-def main_pages(app):
+def main_pages(app, session):
     @app.route("/")
     def index():
-        db_sess = db_session.create_session()
-        users = db_sess.query(User)
+        return redirect(url_for('register'))
+
+        users = session.query(User)
         for user in users:
             print(user.statics)
         return render_template("index.html", news=users)

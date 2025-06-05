@@ -1,211 +1,315 @@
-/* Основные цвета для ЗОЖ тематики */
 :root {
-    --primary: #2e7d32;
-    --primary-light: #4caf50;
-    --secondary: #0288d1;
-    --accent: #ff9800;
-    --light: #f8f9fa;
-    --dark: #2e3a40;
-    --gray: #e0e0e0;
+    --sport-green: #a7fc00;
+    --sport-pink: #ff3495;
+    --sport-dark: #1f2229;
+    --sport-light: #fff;
+    --sport-gray: #2d3039;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    background: linear-gradient(135deg, var(--sport-dark) 0%, #15181f 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
-    color: var(--dark);
+    color: var(--sport-light);
 }
 
-.register-container {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(46, 125, 50, 0.15);
-    overflow: hidden;
+.sport-container {
+    display: flex;
+    max-width: 1000px;
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
-.register-container:hover {
-    box-shadow: 0 15px 35px rgba(46, 125, 50, 0.2);
+.sport-banner {
+    flex: 1;
+    background: linear-gradient(45deg, var(--sport-pink) 0%, #ff5cab 100%);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.register-header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 35px 25px;
-    text-align: center;
+.sport-banner::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.register-header h2 {
-    font-weight: 700;
-    font-size: 28px;
-    margin: 0 0 10px;
+.sport-banner::after {
+    content: "";
+    position: absolute;
+    bottom: -80px;
+    left: -30px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.banner-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.banner-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    opacity: 0.9;
+}
+
+.sport-features {
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    margin-right: 15px;
+    font-size: 1.2rem;
 }
 
-.register-header p {
-    opacity: 0.9;
-    font-size: 17px;
-    margin: 0;
-    letter-spacing: 0.3px;
+.registration-card {
+    flex: 1;
+    background: var(--sport-gray);
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
 }
 
-.register-form {
-    padding: 30px;
+.card-header {
+    margin-bottom: 40px;
 }
 
-.form-group {
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--sport-green);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-weight: 800;
+}
+
+.card-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
     margin-bottom: 25px;
     position: relative;
 }
 
-.form-group label {
+.input-label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: var(--dark);
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.form-group input {
+.input-field {
     width: 100%;
-    padding: 16px 18px;
-    border: 2px solid var(--gray);
-    border-radius: 10px;
-    font-size: 16px;
-    transition: all 0.3s;
-    background-color: #f8f9fa;
-    color: var(--dark);
-}
-
-.form-group input:focus {
-    border-color: var(--primary);
-    background-color: white;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
-}
-
-.btn-register {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: white;
-    border: none;
     padding: 16px 20px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--sport-light);
+    transition: all 0.3s ease;
 }
 
-.btn-register:hover {
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+.input-field:focus {
+    border-color: var(--sport-green);
+    background: rgba(167, 252, 0, 0.05);
+    outline: none;
+}
+
+.password-container {
+    position: relative;
+}
+
+.show-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: var(--sport-green);
+    color: var(--sport-dark);
+    border: none;
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    background: #b5ff2a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(167, 252, 0, 0.3);
 }
 
 .login-link {
     text-align: center;
     margin-top: 25px;
-    color: var(--dark);
-    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .login-link a {
-    color: var(--secondary);
+    color: var(--sport-pink);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
 }
 
 .login-link a:hover {
-    color: var(--primary);
+    color: #ff5cab;
     text-decoration: underline;
 }
 
-/* Стили для ошибок */
-.form-errors {
-    margin-bottom: 20px;
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: rgba(255, 255, 255, 0.4);
 }
 
-.error-message {
-    color: #dc3545; /* Красный цвет для ошибок */
-    font-size: 14px;
-    margin-top: 5px;
-    display: block;
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.input-error {
-    border-color: #dc3545 !important;
-    background-color: #fff3f3 !important;
+.divider span {
+    padding: 0 15px;
 }
 
-.alert {
-    padding: 12px 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    font-size: 15px;
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--sport-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+.social-btn:hover {
+    border-color: var(--sport-green);
+    transform: translateY(-3px);
 }
 
-/* Адаптивность */
-@media (max-width: 576px) {
-    .register-container {
-        border-radius: 12px;
+@media (max-width: 900px) {
+    .sport-container {
+        flex-direction: column;
     }
 
-    .register-header {
-        padding: 25px 20px;
+    .sport-banner {
+        padding: 40px 30px;
     }
 
-    .register-header h2 {
-        font-size: 24px;
+    .registration-card {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-title {
+        font-size: 2.2rem;
     }
 
-    .register-form {
-        padding: 25px 20px;
+    .card-title {
+        font-size: 1.8rem;
     }
 
-    .form-group input {
-        padding: 14px 16px;
-    }
-
-    .btn-register {
-        padding: 15px;
-        font-size: 16px;
+    .sport-banner,
+    .registration-card {
+        padding: 30px 20px;
     }
 }
