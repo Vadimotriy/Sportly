@@ -2,6 +2,7 @@ import re
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 from Flask.database.database import User
+from flask_login import login_user, logout_user, login_required
 
 
 def registr(app, session):
@@ -30,22 +31,16 @@ def registr(app, session):
             if password != confirm_password:
                 errors.append('Пароли не совпадают!')
 
-            print(errors)
-            print(3)
-
             if errors:
                 for error in errors:
-                    print(error)
                     flash(error, 'error')
                 return render_template('register.html', name=name, email=email, message=errors[0])
 
             try:
-                print(4)
                 user = User(name=name, email=email)
                 user.set_password(password)
                 session.add(user)
                 session.commit()
-                print(5)
 
                 flash('Регистрация прошла успешно! Теперь вы можете войти.', 'success')
                 return redirect(url_for('login'))
@@ -78,6 +73,13 @@ def registr(app, session):
                     flash(error, 'error')
                 return render_template('login.html', email=email, message=errors[0])
 
+            login_user(user, remember=True)
             return redirect(url_for('index'))
 
         return render_template('login.html')
+
+    @app.route('/logout')
+    @login_required
+    def logout():
+        logout_user()
+        return redirect("/")

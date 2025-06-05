@@ -2,12 +2,13 @@ import datetime
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 engine = create_engine('sqlite:///Flask/data/users_info.db')
 Base = declarative_base()
 
 
-class User(Base):
+class User(Base, UserMixin):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
