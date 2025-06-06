@@ -267,17 +267,6 @@
                     <h3>Sportly</h3>
                     <p>Ваш персональный спортивный помощник для достижения фитнес-целей и здорового образа жизни.</p>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Возможности</h3>
-                    <ul>
-                        <li><a href="#">Мониторинг активности</a></li>
-                        <li><a href="#">Ежедневные задания</a></li>
-                        <li><a href="#">Графики прогресса</a></li>
-                        <li><a href="#">ИИ-диетолог</a></li>
-                        <li><a href="#">Премиум подписка</a></li>
-                    </ul>
-                </div>
             
             <div class="copyright">
                 &copy; 2025 Sportly.
@@ -316,17 +305,30 @@
             observer.observe(card);
         });
     </script>
+
     <script>
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function() {
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-                document.getElementById("navbar").style.top = "0";
-            } else {
-                document.getElementById("navbar").style.top = "-50px";
+        // Управление header при прокрутке
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const scrollThreshold = 60; // Порог срабатывания в пикселях
+        const mobileBreakpoint = 768; // Ширина экрана для мобильных
+
+        window.addEventListener('scroll', function() {
+            // Проверяем, что это мобильное устройство
+            if (window.innerWidth <= mobileBreakpoint) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                    // Прокрутка вниз
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Прокрутка вверх
+                    header.style.transform = 'translateY(0)';
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             }
-            prevScrollpos = currentScrollPos;
-        }
+        });
     </script>
 </body>
 </html>
