@@ -9,4 +9,4 @@ def main_pages(app, session):
         if current_user.is_authenticated:
             return current_user.name
         else:
-            return 'You are not logged in'
+            return render_template('index_not_logged.html')
