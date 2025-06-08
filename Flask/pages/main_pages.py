@@ -4,9 +4,28 @@ from Flask.database.database import User
 
 
 def main_pages(app, session):
+    @app.route("/")
     @app.route("/index")
     def index():
         if current_user.is_authenticated:
-            return current_user.name
+            name = current_user.name
+            name = name if len(name) < 10 else name[:8] + '...'
+            return render_template('index_not_logged.html', text=current_user.name)
         else:
-            return render_template('index_not_logged.html')
+            return render_template('index_not_logged.html', text="Войти", logged=0)
+
+    @app.route("/profile")
+    def about():
+        if current_user.is_authenticated:
+            name = current_user.name
+            return name
+        else:
+            return redirect('/login')
+
+    @app.route("/premium")
+    def about():
+        if current_user.is_authenticated:
+            name = current_user.name
+            return name
+        else:
+            return redirect('/login')

@@ -82,4 +82,4 @@ def registr(app, session):
     @login_required
     def logout():
         logout_user()
-        return redirect("/")
+        return redirect("/index")

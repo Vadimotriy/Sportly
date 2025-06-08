@@ -27,7 +27,7 @@
                 </ul>
             </nav>
             
-            <button class="cta-button">Войти</button>
+            <a href="/profile"><button class="cta-button">{{ text }}</button></a>
         </div>
     </header>
 
@@ -37,10 +37,12 @@
             <div class="hero-content">
                 <h1>Ваш персональный спортивный помощник</h1>
                 <p>Sportly - это революционный подход к фитнесу и здоровому образу жизни. Умная система, которая анализирует вашу активность и создает индивидуальные программы для достижения ваших целей.</p>
-                
-                <div class="hero-buttons">
-                    <button class="cta-button">Зарегистрироваться</button>
-                </div>
+
+                {% if logged == 0 %}
+                    <div class="hero-buttons">
+                        <a href="/register"><button class="cta-button">Зарегистрироваться</button></a>
+                    </div>
+                {% endif %}
             </div>
             
             <div class="hero-image">
@@ -194,7 +196,7 @@
                     
                     <div class="price">299₽<span>/месяц</span></div>
                     
-                    <button class="cta-button">Подключить</button>
+                    <a href="/premium"><button class="cta-button">Подключить</button></a>
                 </div>
             </div>
         </div>
@@ -254,7 +256,9 @@
             <div class="cta-card">
                 <h2>Готовы начать свой путь к здоровью?</h2>
                 <p>Присоединяйтесь к тысячам пользователей, которые уже достигли своих целей с помощью Sportly</p>
-                <button class="cta-button" style="margin-top: 30px;">Зарегистрироваться</button>
+                {% if logged == 0 %}
+                    <a href="/register"><button class="cta-button" style="margin-top: 30px;">Зарегистрироваться</button></a>
+                {% endif %}
             </div>
         </div>
     </section>
