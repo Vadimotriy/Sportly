@@ -1,0 +1,152 @@
+[
+  {
+    "day": 1,
+    "tasks": [
+      {"activity": "ходьба", "amount": "30 минут", "description": "Прогулка в среднем темпе"},
+      {"activity": "приседания", "amount": "15 раз", "description": "Классические приседания"},
+      {"activity": "подтягивания", "amount": "8 раз", "description": "С помощью резинки или партнера"},
+      {"activity": "велосипед", "amount": "30 минут", "description": "Езда в комфортном темпе"},
+      {"activity": "плавание", "amount": "30 минут", "description": "Свободный стиль"}
+    ]
+  },
+  {
+    "day": 2,
+    "tasks": [
+      {"activity": "пресс", "amount": "10 раз", "description": "Скручивания лежа"},
+      {"activity": "бег", "amount": "30 минут", "description": "Легкая пробежка"},
+      {"activity": "отжимания", "amount": "10 раз", "description": "От пола или от стены"},
+      {"activity": "велосипед", "amount": "35 минут", "description": "С постоянным темпом"},
+      {"activity": "плавание", "amount": "35 минут", "description": "Работа над техникой"}
+    ]
+  },
+  {
+    "day": 3,
+    "tasks": [
+      {"activity": "подтягивания", "amount": "10 раз", "description": "Широкая постановка рук"},
+      {"activity": "приседания", "amount": "20 раз", "description": "С широкой постановкой ног"},
+      {"activity": "ходьба", "amount": "40 минут", "description": "Скандинавская ходьба"},
+      {"activity": "велосипед", "amount": "40 минут", "description": "По ровной местности"},
+      {"activity": "плавание", "amount": "40 минут", "description": "С доской для ног"}
+    ]
+  },
+  {
+    "day": 4,
+    "tasks": [
+      {"activity": "бег", "amount": "35 минут", "description": "С интервалами ходьбы"},
+      {"activity": "пресс", "amount": "15 раз", "description": "Подъем ног лежа"},
+      {"activity": "отжимания", "amount": "12 раз", "description": "Средняя постановка рук"},
+      {"activity": "велосипед", "amount": "45 минут", "description": "С легким сопротивлением"},
+      {"activity": "плавание", "amount": "45 минут", "description": "Разные стили"}
+    ]
+  },
+  {
+    "day": 5,
+    "tasks": [
+      {"activity": "приседания", "amount": "25 раз", "description": "Плие-приседания"},
+      {"activity": "подтягивания", "amount": "12 раз", "description": "Средний хват"},
+      {"activity": "ходьба", "amount": "45 минут", "description": "В гору или по ступенькам"},
+      {"activity": "велосипед", "amount": "50 минут", "description": "С умеренным сопротивлением"},
+      {"activity": "плавание", "amount": "50 минут", "description": "На выносливость"}
+    ]
+  },
+  {
+    "day": 6,
+    "tasks": [
+      {"activity": "пресс", "amount": "20 раз", "description": "Русские скручивания"},
+      {"activity": "бег", "amount": "40 минут", "description": "Непрерывный бег"},
+      {"activity": "отжимания", "amount": "15 раз", "description": "Узкая постановка рук"},
+      {"activity": "велосипед", "amount": "55 минут", "description": "Интервальная тренировка"},
+      {"activity": "плавание", "amount": "55 минут", "description": "Техника кроля"}
+    ]
+  },
+  {
+    "day": 7,
+    "tasks": [
+      {"activity": "подтягивания", "amount": "15 раз", "description": "Разные хваты"},
+      {"activity": "приседания", "amount": "30 раз", "description": "С прыжком"},
+      {"activity": "ходьба", "amount": "50 минут", "description": "Быстрым шагом"},
+      {"activity": "велосипед", "amount": "60 минут", "description": "Длительная поездка"},
+      {"activity": "плавание", "amount": "60 минут", "description": "Комплексное плавание"}
+    ]
+  },
+  {
+    "day": 8,
+    "tasks": [
+      {"activity": "отжимания", "amount": "18 раз", "description": "С хлопком"},
+      {"activity": "пресс", "amount": "25 раз", "description": "Велосипед лежа"},
+      {"activity": "бег", "amount": "45 минут", "description": "По пересеченной местности"},
+      {"activity": "велосипед", "amount": "65 минут", "description": "Горный велосипед"},
+      {"activity": "плавание", "amount": "65 минут", "description": "Плавание на спине"}
+    ]
+  },
+  {
+    "day": 9,
+    "tasks": [
+      {"activity": "приседания", "amount": "35 раз", "description": "Сумо с широкой постановкой"},
+      {"activity": "подтягивания", "amount": "18 раз", "description": "С негативными повторениями"},
+      {"activity": "ходьба", "amount": "55 минут", "description": "С утяжелителями"},
+      {"activity": "велосипед", "amount": "70 минут", "description": "Спринтерские интервалы"},
+      {"activity": "плавание", "amount": "70 минут", "description": "С лопатками"}
+    ]
+  },
+  {
+    "day": 10,
+    "tasks": [
+      {"activity": "бег", "amount": "50 минут", "description": "Фартлек (игра скоростей)"},
+      {"activity": "отжимания", "amount": "20 раз", "description": "Алмазные отжимания"},
+      {"activity": "пресс", "amount": "30 раз", "description": "Планка + скручивания"},
+      {"activity": "велосипед", "amount": "75 минут", "description": "Темповая езда"},
+      {"activity": "плавание", "amount": "75 минут", "description": "Длительные заплывы"}
+    ]
+  },
+  {
+    "day": 11,
+    "tasks": [
+      {"activity": "подтягивания", "amount": "20 раз", "description": "С дополнительным весом"},
+      {"activity": "приседания", "amount": "40 раз", "description": "Болгарские выпады"},
+      {"activity": "ходьба", "amount": "60 минут", "description": "Скандинавская ходьба в парке"},
+      {"activity": "велосипед", "amount": "80 минут", "description": "Групповой заезд"},
+      {"activity": "плавание", "amount": "80 минут", "description": "Техническая работа"}
+    ]
+  },
+  {
+    "day": 12,
+    "tasks": [
+      {"activity": "пресс", "amount": "25 раз", "description": "V-образные подъемы"},
+      {"activity": "бег", "amount": "55 минут", "description": "Прогрессивный бег"},
+      {"activity": "отжимания", "amount": "22 раз", "description": "С паузой внизу"},
+      {"activity": "велосипед", "amount": "85 минут", "description": "На тренажере с нагрузкой"},
+      {"activity": "плавание", "amount": "85 минут", "description": "Плавание с колобашкой"}
+    ]
+  },
+  {
+    "day": 13,
+    "tasks": [
+      {"activity": "приседания", "amount": "45 раз", "description": "С выпрыгиванием"},
+      {"activity": "подтягивания", "amount": "22 раз", "description": "С медленным опусканием"},
+      {"activity": "ходьба", "amount": "65 минут", "description": "В быстром темпе"},
+      {"activity": "велосипед", "amount": "90 минут", "description": "Интервалы высокой интенсивности"},
+      {"activity": "плавание", "amount": "90 минут", "description": "Комплекс 500 метров"}
+    ]
+  },
+  {
+    "day": 14,
+    "tasks": [
+      {"activity": "отжимания", "amount": "25 раз", "description": "Разноуровневые отжимания"},
+      {"activity": "пресс", "amount": "30 раз", "description": "Скручивания с поворотом"},
+      {"activity": "бег", "amount": "60 минут", "description": "Темповый бег на 10 км"},
+      {"activity": "велосипед", "amount": "90 минут", "description": "Горный велосипед по тропам"},
+      {"activity": "плавание", "amount": "90 минут", "description": "Техника баттерфляя"}
+    ]
+  },
+  {
+    "day": 15,
+    "tasks": [
+      {"activity": "подтягивания", "amount": "25 раз", "description": "Максимально технично"},
+      {"activity": "приседания", "amount": "50 раз", "description": "Комплекс разных видов"},
+      {"activity": "ходьба", "amount": "70 минут", "description": "Ходьба с грузом"},
+      {"activity": "велосипед", "amount": "90 минут", "description": "Дальняя поездка на природу"},
+      {"activity": "плавание", "amount": "90 минут", "description": "Длительный заплыв"}
+    ]
+  }
+]
