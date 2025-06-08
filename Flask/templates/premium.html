@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - Премиум подписка</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">ㅤ</div>
+                <span>SPORTLY</span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="/index">Возможности</a></li>
+                    <li><a href="/index">Статистика</a></li>
+                    <li><a href="/index">Премиум</a></li>
+                    <li><a href="/index">Отзывы</a></li>
+                </ul>
+            </nav>
+
+            <a href="/profile"><button class="cta-button">{{ text }}</button></a>
+        </div>
+    </header>
+
+    <!-- Premium Section -->
+    <section class="premium" id="premium">
+        <div class="container">
+            <div class="premium-container">
+                <h2>Вы подключили подписку!</h2>
+                <div class="premium-card">
+                    <h3>Теперь вам доступно</h3>
+                    <p>Наш искусственный интеллект создает индивидуальный рацион питания на основе ваших целей, предпочтений и состояния здоровья</p>
+
+                    <div class="premium-features">
+                        <div class="premium-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>Индивидуальный план питания на каждый день</div>
+                        </div>
+                        <div class="premium-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>Учет пищевых предпочтений и аллергий</div>
+                        </div>
+                        <div class="premium-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>Анализ микро- и макронутриентов</div>
+                        </div>
+                        <div class="premium-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>Персонализированные рецепты блюд</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Sportly</h3>
+                    <p>Ваш персональный спортивный помощник для достижения фитнес-целей и здорового образа жизни.</p>
+                </div>
+
+            <div class="copyright">
+                &copy; 2025 Sportly.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Анимация при скролле
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .dashboard-image, .premium-card, .testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+
+    <script>
+        // Управление header при прокрутке
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const scrollThreshold = 60; // Порог срабатывания в пикселях
+        const mobileBreakpoint = 768; // Ширина экрана для мобильных
+
+        window.addEventListener('scroll', function() {
+            // Проверяем, что это мобильное устройство
+            if (window.innerWidth <= mobileBreakpoint) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                    // Прокрутка вниз
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Прокрутка вверх
+                    header.style.transform = 'translateY(0)';
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+        });
+    </script>
+</body>
+</html>

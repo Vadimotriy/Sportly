@@ -16,12 +16,17 @@ class User(Base, UserMixin):
     email = Column(String, index=True, unique=True)
     hashed_password = Column(String, nullable=True)
     created_date = Column(DateTime, default=datetime.datetime.now().date())
+    premium = Column(Boolean, default=False)
+
+    bike = Column(Boolean, default=False)
+    swimming = Column(Boolean, default=False)
+
 
     tasks = relationship("Tasks", back_populates='user')
     statics = relationship("Statics", back_populates="user")
 
     def __repr__(self):
-        return f'Id: {self.id}; Name: {self.name}; Email: {self.email}; Hashed Password: {self.hashed_password}'
+        return f'Id: {self.id}; Name: {self.name}; Email: {self.email}; Premium: {self.premium}'
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
