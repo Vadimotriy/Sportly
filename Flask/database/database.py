@@ -16,7 +16,7 @@ class User(Base, UserMixin):
     email = Column(String, index=True, unique=True)
     hashed_password = Column(String, nullable=True)
     created_date = Column(DateTime, default=datetime.datetime.now().date())
-    premium = Column(Boolean, default=False)
+    premium = Column(Integer, default=0)
 
     bike = Column(Boolean, default=False)
     swimming = Column(Boolean, default=False)

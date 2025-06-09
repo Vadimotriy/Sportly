@@ -8,7 +8,7 @@ def premium(app, session):
     def premium_get():
         if current_user.is_authenticated:
             user = current_user
-            user.premium = 1
+            user.premium += 2
             session.commit()
 
             name = user.name
