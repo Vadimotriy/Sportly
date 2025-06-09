@@ -22,15 +22,3 @@ def stated_pages(app, session):
         else:
             return redirect('/login')
 
-    @app.route("/premium")
-    def premium():
-        if current_user.is_authenticated:
-            user = current_user
-            user.premium = 1
-            session.commit()
-
-            name = user.name
-            name = name if len(name) < 10 else name[:7] + '...'
-            return render_template('premium.html', text=name)
-        else:
-            return redirect('/login')

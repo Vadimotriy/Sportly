@@ -7,6 +7,7 @@ from Flask.database.database import User
 from Flask.pages.main_pages import main_pages
 from Flask.pages.stated_pages import stated_pages
 from Flask.pages.registr import registr
+from Flask.pages.premium import premium
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -24,4 +25,5 @@ if __name__ == '__main__':
     main_pages(app, session)
     stated_pages(app, session)
     registr(app, session)
+    premium(app, session)
     app.run(debug=True)

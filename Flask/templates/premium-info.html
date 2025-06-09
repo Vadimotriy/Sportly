@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - Премиум подписка</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium-info.css') }}">
+</head>
+<body>
+<!-- Навигационная панель -->
+<header>
+    <div class="cont header-container">
+        <div class="logo">
+            <div class="logo-icon">ㅤ</div>
+            <span>SPORTLY</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/index">Возможности</a></li>
+                <li><a href="/index">Статистика</a></li>
+                <li><a href="/index">Премиум</a></li>
+                <li><a href="/index">Отзывы</a></li>
+            </ul>
+        </nav>
+
+        <a href="/profile">
+            <button class="cta-button">{{ text }}</button>
+        </a>
+    </div>
+</header>
+
+<!-- Основной контент -->
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">ИИ Диетолог</h1>
+        <p class="page-subtitle">Персональные планы питания, созданные специально для вас с учетом ваших целей,
+            предпочтений и образа жизни</p>
+    </div>
+
+    <!-- Преимущества -->
+    <div class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h3 class="feature-title">Индивидуальный подход</h3>
+            <p class="feature-text">Наш ИИ анализирует ваши параметры, цели, пищевые предпочтения и аллергии, чтобы
+                создать идеальный план питания именно для вас.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <h3 class="feature-title">Сбалансированное питание</h3>
+            <p class="feature-text">Планы включают оптимальное соотношение белков, жиров и углеводов для достижения
+                ваших спортивных целей.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-apple-alt"></i>
+            </div>
+            <h3 class="feature-title">Разнообразие рецептов</h3>
+            <p class="feature-text">Более 1000 рецептов на выбор. Ваше питание будет вкусным, полезным и никогда не
+                надоест.</p>
+        </div>
+    </div>
+
+    <!-- Ценовой блок -->
+    <div class="container">
+        <div class="price-card">
+            <h2 class="price-title">ИИ-диетолог</h2>
+
+            <div class="price-amount">99 ₽</div>
+
+            <p class="price-description">
+                2 индивидуальных плана питания<br>
+                на основе ваших целей и предпочтений
+            </p>
+
+            <a href="/premium/get"><button class="cta-button">
+                Подключить
+            </button></a><br>
+
+            <div class="tele2-badge">
+                <i class="fas fa-mobile-alt"></i> Для абонентов t2: 2 плана в месяц бесплатно
+            </div>
+        </div>
+    </div>
+
+    <!-- Как это работает -->
+    <div class="how-it-works">
+        <h2 class="pricing-title">Как работает ИИ-диетолог</h2>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Анализ данных</h3>
+                <p class="step-description">Вы предоставляете информацию о себе: возраст, вес, рост, цели, пищевые
+                    предпочтения и ограничения.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Расчет потребностей</h3>
+                <p class="step-description">ИИ рассчитывает вашу суточную норму калорий, БЖУ и микроэлементов.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Создание плана</h3>
+                <p class="step-description">Формируется индивидуальный план питания с рецептами и списком покупок.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Sportly</h3>
+                <p>Ваш персональный спортивный помощник для достижения фитнес-целей и здорового образа жизни.</p>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 Sportly.
+            </div>
+        </div>
+</footer>
+
+<script>
+    // Плавная прокрутка для навигации
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Анимация при скролле
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.feature-card, .dashboard-image, .premium-card, .testimonial-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+<script>
+    // Управление header при прокрутке
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 60; // Порог срабатывания в пикселях
+    const mobileBreakpoint = 768; // Ширина экрана для мобильных
+
+    window.addEventListener('scroll', function () {
+        // Проверяем, что это мобильное устройство
+        if (window.innerWidth <= mobileBreakpoint) {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                // Прокрутка вниз
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Прокрутка вверх
+                header.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }
+    });
+</script>
+</body>
+</html>
