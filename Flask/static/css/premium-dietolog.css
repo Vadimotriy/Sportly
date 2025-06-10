@@ -1,0 +1,465 @@
+:root {
+    --sport-green: #a7fc00;
+    --sport-pink: #ff3495;
+    --sport-dark: #1f2229;
+    --sport-light: #fff;
+    --sport-gray: #2d3039;
+    --sport-dark-gradient: linear-gradient(135deg, #1f2229 0%, #15181f 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--sport-dark-gradient);
+    color: var(--sport-light);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Сайдбар */
+.sidebar {
+    width: 250px;
+    background: var(--sport-dark);
+    padding: 20px 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/Sportly.png");
+    background-size: cover;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--sport-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.user-status {
+    font-size: 0.8rem;
+    color: var(--sport-green);
+    font-weight: 500;
+}
+
+.nav-menu {
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: rgba(167, 252, 0, 0.1);
+    color: var(--sport-light);
+    border-left: 3px solid var(--sport-green);
+}
+
+.nav-item i {
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+.attempt-counter {
+    background: rgba(255, 52, 149, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px;
+    text-align: center;
+}
+
+.attempt-title {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.attempt-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--sport-green);
+}
+
+.attempt-subtitle {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+}
+
+/* Основной контент */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--sport-pink), var(--sport-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-description {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 50%;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+.diet-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.diet-form-container {
+    background: var(--sport-gray);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--sport-light);
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--sport-light);
+    transition: all 0.3s;
+}
+
+.form-input:focus {
+    border-color: var(--sport-green);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(167, 252, 0, 0.2);
+}
+
+textarea.form-input {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-note {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+}
+
+.submit-btn {
+    background: linear-gradient(90deg, var(--sport-pink), var(--sport-light-pink));
+    color: var(--sport-dark);
+    border: none;
+    border-radius: 8px;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 52, 149, 0.4);
+}
+
+.warning-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning-box {
+    background: rgba(255, 52, 149, 0.15);
+    border-left: 4px solid var(--sport-pink);
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 840px;
+}
+
+.warning-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--sport-pink);
+}
+
+.warning-title i {
+    margin-right: 10px;
+}
+
+.error-list {
+    background: rgba(255, 52, 149, 0.15);
+    border-left: 4px solid var(--sport-pink);
+    padding: 15px 20px 15px 40px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.error-list li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.error-list li:before {
+    content: '!';
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--sport-pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.success-box {
+    background: rgba(167, 252, 0, 0.15);
+    border-left: 4px solid var(--sport-green);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.success-icon {
+    font-size: 3rem;
+    color: var(--sport-green);
+    margin-bottom: 20px;
+}
+
+.success-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--sport-green);
+}
+
+.success-text {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1400px) {
+    .warning-box {
+        width: 90%;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo-text, .user-info, .nav-text, .attempt-title, .attempt-subtitle {
+        display: none;
+    }
+
+    .logo {
+        justify-content: center;
+        padding: 0 0 20px 0;
+    }
+
+    .user-profile {
+        justify-content: center;
+    }
+
+    .nav-item {
+        justify-content: center;
+    }
+
+    .nav-item i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+
+    .attempt-counter {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 10px;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+        padding: 0;
+        border-bottom: none;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .user-profile {
+        padding: 0;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex: 1;
+        justify-content: space-around;
+    }
+
+    .nav-item {
+        padding: 10px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-item.active, .nav-item:hover {
+        border-left: none;
+        border-bottom: 3px solid var(--sport-green);
+        background: transparent;
+    }
+
+    .attempt-counter {
+        margin: 0 0 0 15px;
+        padding: 8px 12px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .warning-box {
+        width: 100%;
+    }
+    .sidebar {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        margin-right: 5px;
+    }
+
+    .user-profile {
+        margin-right: 5px;
+    }
+
+    .nav-menu {
+        order: 3;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .attempt-counter {
+        margin-left: auto;
+    }
+
+    .diet-form-container {
+        padding: 20px;
+    }
+}

@@ -17,3 +17,15 @@ def premium(app, session):
         else:
             return redirect('/login')
 
+    @app.route("/premium/dietolog")
+    def premium_dietolog():
+        if current_user.is_authenticated:
+            user = current_user
+            attemps = user.premium
+
+            name = user.name
+            name = name if len(name) < 10 else name[:7] + '...'
+            return render_template('premium-dietolog.html', name=name, letter=name[0].upper(),
+                                   attempts_left=attemps)
+        else:
+            return redirect('/login')
