@@ -1,4 +1,6 @@
 import json
+import os
+from dotenv import load_dotenv
 
 def read_json(path='Flask/data/tasks.json'):
     with open(path) as json_file:
@@ -8,4 +10,6 @@ def read_json(path='Flask/data/tasks.json'):
 
 
 PASSWORD = 'E7X2A9M*P5L3E0!'
-API_KEY = 'KEY'
+
+load_dotenv('Flask/data/.env')
+API_KEY = os.getenv('API_KEY')
