@@ -192,6 +192,7 @@ body {
 
 .form-group {
     flex: 1;
+    margin-bottom: 10px;
 }
 
 .form-label {
@@ -332,6 +333,33 @@ textarea.form-input {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.button-box {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.cta-button {
+    background: var(--sport-green);
+    color: var(--sport-dark);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background: #b5ff2a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(167, 252, 0, 0.3);
 }
 
 @media (max-width: 1400px) {

@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_login import current_user, AnonymousUserMixin
-from Flask.database.database import User
+
+from Flask.database.database import User, Premium
+from Flask.functions.dietolog import analyze
 
 
 def premium(app, session):
@@ -17,15 +19,39 @@ def premium(app, session):
         else:
             return redirect('/login')
 
-    @app.route("/premium/dietolog")
+    @app.route("/premium/dietolog", methods=['GET', 'POST'])
     def premium_dietolog():
         if current_user.is_authenticated:
             user = current_user
-            attemps = user.premium
+            attempts = user.premium
 
             name = user.name
             name = name if len(name) < 10 else name[:7] + '...'
-            return render_template('premium-dietolog.html', name=name, letter=name[0].upper(),
-                                   attempts_left=attemps)
+
+            if request.method == 'GET':
+                return render_template('premium-dietolog.html', name=name, letter=name[0].upper(),
+                                       attempts_left=attempts)
+            elif request.method == 'POST':
+                age = request.form['age']
+                weight = request.form['weight']
+                height = request.form['height']
+                preferences = request.form['preferences']
+                dislikes = request.form['dislikes']
+                purpose = request.form['purpose']
+                life = request.form['life']
+                cant = request.form['cant']
+
+                result = analyze(age, weight, height, preferences, dislikes, purpose, life, cant)
+
+                user.premium -= 1
+                attempts = user.premium
+                premium = Premium(user_id=user.id, text=result)
+                session.add(premium)
+                session.commit()
+
+                return render_template('dietolog-res.html', text=result, name=name,
+                                       letter=name[0].upper(), attempts_left=attempts)
+            return redirect('/premium')
+
         else:
             return redirect('/login')

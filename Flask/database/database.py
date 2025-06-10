@@ -21,9 +21,9 @@ class User(Base, UserMixin):
     bike = Column(Boolean, default=False)
     swimming = Column(Boolean, default=False)
 
-
     tasks = relationship("Tasks", back_populates='user')
     statics = relationship("Statics", back_populates="user")
+    premiums = relationship("Premium", back_populates="user")
 
     def __repr__(self):
         return f'Id: {self.id}; Name: {self.name}; Email: {self.email}; Premium: {self.premium}'
@@ -69,6 +69,16 @@ class Statics(Base):
 
     def __repr__(self):
         return f"user_id: {self.user_id}; address={self.kilometeers})>"
+
+
+class Premium(Base):
+    __tablename__ = 'premium'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+
+    text = Column(String, nullable=True)
+    user = relationship('User')
 
 
 Base.metadata.create_all(engine)

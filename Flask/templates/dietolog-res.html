@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - ИИ-диетолог</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium-dietolog.css') }}">
+</head>
+<body>
+<!-- Сайдбар -->
+<div class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">ㅤ</div>
+        <div class="logo-text">SPORTLY</div>
+    </div>
+
+    <div class="user-profile">
+        <div class="avatar">{{ letter }}</div>
+        <div class="user-info">
+            <div class="user-name">{{ name }}</div>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="#" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span class="nav-text">Главная</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-text">Статистика</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fas fa-robot"></i>
+            <span class="nav-text">ИИ-диетолог</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-text">Задания</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-crown"></i>
+            <span class="nav-text">Премиум</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span class="nav-text">Профиль</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span class="nav-text">Настройки</span>
+        </a>
+    </div>
+
+    <div class="attempt-counter">
+        <div class="attempt-title">Попыток осталось</div>
+        <div class="attempt-value">{{ attempts_left }}</div>
+    </div>
+</div>
+
+<!-- Основной контент -->
+<div class="main-content">
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">ИИ-диетолог</h1>
+        </div>
+    </div>
+
+    <div class="warning-main">
+        <div class="warning-box">
+            <div class="warning-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Важная информация
+            </div>
+            <p>Вы можете посмотреть ваш рацион в любое время в профиле, в разделе "Рацион питания".</p>
+        </div>
+    </div>
+
+    <div class="diet-main">
+        <div class="diet-form-container">
+            {{ text | safe}}
+        </div>
+    </div>
+</div>
+<script>
+    // Плавная прокрутка для навигации
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Анимация при скролле
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.feature-card, .dashboard-image, .premium-card, .testimonial-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+<script>
+    // Управление header при прокрутке
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 60; // Порог срабатывания в пикселях
+    const mobileBreakpoint = 768; // Ширина экрана для мобильных
+
+    window.addEventListener('scroll', function () {
+        // Проверяем, что это мобильное устройство
+        if (window.innerWidth <= mobileBreakpoint) {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                // Прокрутка вниз
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Прокрутка вверх
+                header.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }
+    });
+</script>
+</body>
+</html>
