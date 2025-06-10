@@ -24,6 +24,8 @@ def premium(app, session):
         if current_user.is_authenticated:
             user = current_user
             attempts = user.premium
+            if attempts <= 0:
+                return redirect('/premium/info')
 
             name = user.name
             name = name if len(name) < 10 else name[:7] + '...'
