@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - Профиль</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">ㅤ</div>
+        <div class="logo-text">SPORTLY</div>
+    </div>
+
+    <div class="user-profile">
+        <div class="avatar">{{ letter }}</div>
+        <div class="user-info">
+            <div class="user-name">{{ name }}</div>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="#" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span class="nav-text">Главная</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-text">Статистика</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fas fa-robot"></i>
+            <span class="nav-text">ИИ-диетолог</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-text">Задания</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span class="nav-text">Профиль</span>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Основной контент -->
+    <div class="main-content">
+        <!-- Профиль пользователя -->
+        <div class="profile-header">
+            <div class="avatar">М</div>
+            <div class="profile-info">
+                <h1 class="profile-name">Мария Иванова</h1>
+                <p>Участник с 15 апреля 2023 года</p>
+
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">Выполнение заданий</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Дней подряд</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">9</div>
+                        <div class="stat-label">Рационов ИИ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Настройки диетолога -->
+        <div class="diet-settings">
+            <h2 class="section-title">Настройки ИИ Диетолога</h2>
+
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <div class="setting-content">
+                        <div class="setting-title">Включить велосипед в задания</div>
+                        <div class="setting-description">Добавляет велосипедные тренировки в ежедневные задания</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <i class="fas fa-swimmer"></i>
+                    </div>
+                    <div class="setting-content">
+                        <div class="setting-title">Включить плавание в задания</div>
+                        <div class="setting-description">Добавляет плавательные тренировки в ежедневные задания</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="setting-content">
+                        <div class="setting-title">Вегетарианские опции</div>
+                        <div class="setting-description">Исключить мясо из рекомендаций</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="setting-content">
+                        <div class="setting-title">Безглютеновая диета</div>
+                        <div class="setting-description">Исключить продукты с глютеном</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Последний рацион -->
+        <div class="diet-plan">
+            <div class="diet-header">
+                <h2 class="section-title">Последний рацион от ИИ</h2>
+                <div class="diet-date">Сгенерировано: 20 мая 2023</div>
+            </div>
+
+            <div class="diet-meals">
+                <div class="meal-card">
+                    <h3 class="meal-title"><i class="fas fa-sun"></i> Завтрак</h3>
+                    <ul class="meal-items">
+                        <li class="meal-item">
+                            <span class="meal-name">Омлет с овощами</span>
+                            <span class="meal-calories">320 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Цельнозерновой хлеб</span>
+                            <span class="meal-calories">120 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Авокадо</span>
+                            <span class="meal-calories">160 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Зеленый чай</span>
+                            <span class="meal-calories">5 ккал</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="meal-card">
+                    <h3 class="meal-title"><i class="fas fa-cloud-sun"></i> Обед</h3>
+                    <ul class="meal-items">
+                        <li class="meal-item">
+                            <span class="meal-name">Куриная грудка на гриле</span>
+                            <span class="meal-calories">220 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Киноа с овощами</span>
+                            <span class="meal-calories">180 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Салат из свежих овощей</span>
+                            <span class="meal-calories">80 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Ягодный морс</span>
+                            <span class="meal-calories">60 ккал</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="meal-card">
+                    <h3 class="meal-title"><i class="fas fa-moon"></i> Ужин</h3>
+                    <ul class="meal-items">
+                        <li class="meal-item">
+                            <span class="meal-name">Запеченный лосось</span>
+                            <span class="meal-calories">280 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Тушеная спаржа</span>
+                            <span class="meal-calories">70 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Греческий йогурт</span>
+                            <span class="meal-calories">120 ккал</span>
+                        </li>
+                        <li class="meal-item">
+                            <span class="meal-name">Травяной чай</span>
+                            <span class="meal-calories">5 ккал</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="diet-summary">
+                <p><strong>Общая калорийность:</strong> 1640 ккал | <strong>Белки:</strong> 120г |
+                    <strong>Жиры:</strong> 65г | <strong>Углеводы:</strong> 145г</p>
+                <p>Рацион оптимизирован под ваши тренировки и цели по снижению веса</p>
+            </div>
+
+            <button class="generate-btn">
+                <i class="fas fa-robot"></i> Сгенерировать новый рацион
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Переключение настроек
+    document.querySelectorAll('.toggle-switch input').forEach(switchEl => {
+        switchEl.addEventListener('change', function () {
+            const settingName = this.closest('.setting-item').querySelector('.setting-title').textContent;
+            const action = this.checked ? 'включена' : 'выключена';
+            alert(`Настройка "${settingName}" ${action}`);
+
+            // Здесь будет отправка данных на сервер
+        });
+    });
+</script>
+</body>
+</html>

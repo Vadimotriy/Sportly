@@ -7,7 +7,13 @@ def main_pages(app, session):
     @app.route("/profile")
     def profile():
         if current_user.is_authenticated:
-            name = current_user.name
-            return name
+            user = current_user
+            name = user.name
+            name = name if len(name) < 10 else name[:7] + '...'
+            data = {
+                'name': name,
+                'letter': name[0].upper()
+            }
+            return render_template('profile.html')
         else:
             return redirect('/login')

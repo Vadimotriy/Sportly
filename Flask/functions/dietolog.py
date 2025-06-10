@@ -33,7 +33,7 @@ def analyze(age, weight, height, like, dislike, purpose, life, cant):
 
         })
     )
-
+    pprint(response.json())
     result = response.json()['choices'][0]['message']['content']
     result = result.replace('\n\n', '<br /><br />')
     html = markdown.markdown(result)
