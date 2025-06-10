@@ -8,3 +8,4 @@ def read_json(path='Flask/data/tasks.json'):
 
 
 PASSWORD = 'E7X2A9M*P5L3E0!'
+API_KEY = '<KEY>'
