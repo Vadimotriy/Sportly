@@ -14,6 +14,16 @@ def stated_pages(app, session):
         else:
             return render_template('index_not_logged.html', text="Войти", logged=0)
 
+    @app.route("/premium/info")
+    def premium_info():
+        if current_user.is_authenticated:
+            user = current_user
+            name = user.name
+            name = name if len(name) < 10 else name[:7] + '...'
+            return render_template('premium-info.html', text=name)
+        else:
+            return render_template('premium-info.html', text='Войти')
+
     @app.route("/main")
     def main():
         if current_user.is_authenticated:

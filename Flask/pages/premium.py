@@ -17,12 +17,3 @@ def premium(app, session):
         else:
             return redirect('/login')
 
-    @app.route("/premium/info")
-    def premium_info():
-        if current_user.is_authenticated:
-            user = current_user
-            name = user.name
-            name = name if len(name) < 10 else name[:7] + '...'
-            return render_template('premium-info.html', text=name)
-        else:
-            return render_template('premium-info.html', text='Войти')
