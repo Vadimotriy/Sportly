@@ -12,9 +12,9 @@ load_dotenv('Flask/data/.env')
 API_KEY = os.getenv('API_KEY')
 
 ICONS = {
-    'bicycle': '<i class="fa-solid fa-bicycle"></i>',
-    'swimming': '<i class="fa-solid fa-water"></i>',
-    'running': '<i class="fa-solid fa-person-running"></i>',
-    'walking': '<i class="fa-solid fa-person-walking"></i>',
+    'велосипед': '<i class="fa-solid fa-bicycle"></i>',
+    'плавание': '<i class="fa-solid fa-water"></i>',
+    'бег': '<i class="fa-solid fa-person-running"></i>',
+    'ходьба': '<i class="fa-solid fa-person-walking"></i>',
     'other': '<i class="fa-solid fa-fire-flame-curved"></i>'
 }

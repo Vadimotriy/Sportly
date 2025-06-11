@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, AnonymousUserMixin
 from Flask.database.database import User, Premium
 from Flask.functions.functions import get_tasks, get_days
+from Flask.database.constants import ICONS
 
 
 def main_pages(app, session):
@@ -59,14 +60,15 @@ def main_pages(app, session):
                 'letter': name[0].upper(),
 
                 'task1_status': tasks.task1, 'task2_status': tasks.task2, 'task3_status': tasks.task3,
+                'task1_description': text1[2], 'task2_description': text2[2], 'task3_description': text3[2],
+
+                'task1_icon': ICONS.get(text1[0], ICONS['other']),
+                'task2_icon': ICONS.get(text2[0], ICONS['other']),
+                'task3_icon': ICONS.get(text3[0], ICONS['other']),
 
                 'task1_activity': text1[0].capitalize(),
                 'task2_activity': text2[0].capitalize(),
                 'task3_activity': text3[0].capitalize(),
-
-                'task1_description': text1[2] + f' <b>{text1[1]}</b>',
-                'task2_description': text2[2] + f' <b>{text2[1]}</b>',
-                'task3_description': text3[2] + f' <b>{text3[1]}</b>',
             }
 
             return render_template('tasks.html', **data,)

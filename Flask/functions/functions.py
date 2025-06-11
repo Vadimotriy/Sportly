@@ -17,6 +17,7 @@ def get_tasks(user, session):
     if not result:
         generate_task(user, session)
         result = session.query(Tasks).filter((Tasks.user_id == user.id) & (Tasks.date == date_now)).first()
+    print(result)
 
     return result
 

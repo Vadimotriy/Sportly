@@ -55,7 +55,7 @@
     <div class="border">
         <div class="task-card">
             <div class="task-image">
-                <i class="fas fa-running"></i>
+                {{ task1_icon | safe }}
             </div>
             <div class="task-content">
                 <h3 class="task-title">{{ task1_activity }}</h3>
@@ -73,7 +73,7 @@
     <div class="border">
         <div class="task-card">
             <div class="task-image">
-                <i class="fas fa-fire-alt"></i>
+                {{ task2_icon | safe }}
             </div>
             <div class="task-content">
                 <h3 class="task-title">{{ task2_activity }}</h3>
@@ -91,7 +91,7 @@
     <div class="border">
         <div class="task-card">
             <div class="task-image">
-                <i class="fas fa-water"></i>
+                {{ task3_icon | safe }}
             </div>
             <div class="task-content">
                 <h3 class="task-title">{{ task3_activity }}</h3>
