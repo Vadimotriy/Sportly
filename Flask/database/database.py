@@ -1,4 +1,5 @@
 import datetime
+import json
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,7 +7,6 @@ from flask_login import UserMixin
 
 engine = create_engine('sqlite:///Flask/data/users_info.db')
 Base = declarative_base()
-
 
 class User(Base, UserMixin):
     __tablename__ = 'users'
@@ -41,8 +41,12 @@ class Tasks(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     task1 = Column(Boolean, default=False)
+    text1 = Column(String)
     task2 = Column(Boolean, default=False)
+    text2 = Column(String)
     task3 = Column(Boolean, default=False)
+    text3 = Column(String)
+    date = Column(String, default=datetime.datetime.now().date().strftime("%Y-%m-%d"))
 
     user = relationship('User')
 

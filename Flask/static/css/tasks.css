@@ -1,0 +1,281 @@
+:root {
+    --sport-green: #a7fc00;
+    --sport-pink: #ff3495;
+    --sport-dark: #1f2229;
+    --sport-light: #fff;
+    --sport-gray: #2d3039;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--sport-dark);
+    color: var(--sport-light);
+}
+
+/* Сайдбар */
+.sidebar {
+    width: 250px;
+    background: var(--sport-dark);
+    padding: 20px 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/Sportly.png");
+    background-size: cover;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.avatar_side_bar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--sport-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.user-status {
+    font-size: 0.8rem;
+    color: var(--sport-green);
+    font-weight: 500;
+}
+
+.nav-menu {
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: rgba(167, 252, 0, 0.1);
+    color: var(--sport-light);
+    border-left: 3px solid var(--sport-green);
+}
+
+.nav-item i {
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+.attempt-counter {
+    background: rgba(255, 52, 149, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px;
+    text-align: center;
+}
+
+.attempt-title {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.attempt-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--sport-green);
+}
+
+.attempt-subtitle {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+}
+
+/* Основное содержимое */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.page-header {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--sport-pink), var(--sport-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.date {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Задания */
+.tasks-container {
+    gap: 25px;
+}
+
+.border {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.task-card {
+    background: var(--sport-gray);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    width: 700px;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.task-image {
+    width: 100%;
+    height: 180px;
+    background-color: rgba(255, 52, 149, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sport-pink);
+    font-size: 50px;
+}
+
+.task-content {
+    padding: 20px;
+}
+
+.task-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--sport-green);
+}
+
+.task-description {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.task-difficulty {
+    color: var(--sport-pink);
+    font-weight: 600;
+}
+
+.task-time {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.complete-btn {
+    width: 100%;
+    background: linear-gradient(90deg, var(--sport-pink), var(--sport-light-pink));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+    background: linear-gradient(90deg, var(--sport-light-pink), var(--sport-pink));
+}
+
+.complete-btn.completed {
+    background: var(--sport-green);
+    color: var(--sport-dark);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .profile {
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - Ежедневные задания</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tasks.css') }}">
+</head>
+<body>
+<!-- Боковая панель -->
+<div class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">ㅤ</div>
+        <div class="logo-text">SPORTLY</div>
+    </div>
+
+    <div class="user-profile">
+        <div class="avatar_side_bar">{{ letter }}</div>
+        <div class="user-info">
+            <div class="user-name">{{ name }}</div>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="/main" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span class="nav-text">Главная</span>
+        </a>
+        <a href="/statics" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-text">Статистика</span>
+        </a>
+        <a href="/premium/dietolog" class="nav-item">
+            <i class="fas fa-robot"></i>
+            <span class="nav-text">ИИ-диетолог</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-text">Задания</span>
+        </a>
+        <a href="/profile" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span class="nav-text">Профиль</span>
+        </a>
+    </div>
+</div>
+
+<!-- Основное содержимое -->
+<div class="main-content">
+    <div class="page-header">
+        <h1 class="page-title">Ежедневные задания</h1>
+    </div>
+
+    <div class="border">
+        <div class="task-card">
+            <div class="task-image">
+                <i class="fas fa-running"></i>
+            </div>
+            <div class="task-content">
+                <h3 class="task-title">Бег</h3>
+                <p class="task-description">Пробежка в среднем темпе продолжительностью 30 минут. Старайтесь
+                    поддерживать постоянный темп.</p>
+                <button class="complete-btn" data-task-id="1">Выполнено</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Задание 2 -->
+    <div class="border">
+        <div class="task-card">
+            <div class="task-image">
+                <i class="fas fa-fire-alt"></i>
+            </div>
+            <div class="task-content">
+                <h3 class="task-title">Приседания</h3>
+                <p class="task-description">Выполните 50 приседаний. Можно разбить на подходы по 10-15 повторений с
+                    коротким отдыхом.</p>
+                <button class="complete-btn" data-task-id="2">Выполнено</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Задание 3 -->
+    <div class="border">
+        <div class="task-card">
+            <div class="task-image">
+                <i class="fas fa-water"></i>
+            </div>
+            <div class="task-content">
+                <h3 class="task-title">Плавание</h3>
+                <p class="task-description">Проплывите 500 метров вольным стилем. Сосредоточьтесь на технике
+                    дыхания.</p>
+                <button class="complete-btn" data-task-id="3">Выполнено</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const completeBtns = document.querySelectorAll('.complete-btn');
+
+    completeBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const taskId = this.getAttribute('data-task-id');
+
+            fetch('/complete_task', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ task_id: taskId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Задача выполнена:', data);
+
+                btn.textContent = '✓ Выполнено';
+                btn.classList.add('completed');
+                btn.disabled = true;
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>
