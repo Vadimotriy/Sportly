@@ -79,6 +79,10 @@ class Premium(Base):
 
     text = Column(String, nullable=True)
     user = relationship('User')
+    date = Column(DateTime, default=datetime.datetime.now().date()  )
+
+    def __repr__(self):
+        return f"user_id: {self.user_id}; text={self.text}; date={self.date}"
 
 
 Base.metadata.create_all(engine)

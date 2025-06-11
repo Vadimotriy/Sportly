@@ -4,9 +4,9 @@ from flask_login import LoginManager
 from Flask.database.database import Session
 from Flask.database.database import User
 
+from Flask.pages.registr import registr
 from Flask.pages.main_pages import main_pages
 from Flask.pages.stated_pages import stated_pages
-from Flask.pages.registr import registr
 from Flask.pages.premium import premium
 
 app = Flask(__name__)
