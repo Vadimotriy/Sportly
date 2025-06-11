@@ -2,51 +2,51 @@
   {
     "day": 1,
     "tasks": [
-      {"activity": "ходьба", "amount": "30 минут", "description": "Прогулка в среднем темпе"},
-      {"activity": "приседания", "amount": "15 раз", "description": "Классические приседания"},
-      {"activity": "подтягивания", "amount": "8 раз", "description": "С помощью резинки или партнера"},
-      {"activity": "велосипед", "amount": "30 минут", "description": "Езда в комфортном темпе"},
-      {"activity": "плавание", "amount": "30 минут", "description": "Свободный стиль"}
+      {"activity": "ходьба", "amount": "2", "description": "Прогулка в среднем темпе <b>2 км</b>"},
+      {"activity": "приседания", "amount": "15", "description": "Классические приседания <b>15 раз</b>"},
+      {"activity": "подтягивания", "amount": "8", "description": "С помощью резинки или партнера <b>8 раз</b>"},
+      {"activity": "велосипед", "amount": "6", "description": "Езда в комфортном темпе <b>6 км</b>"},
+      {"activity": "плавание", "amount": "1", "description": "Свободный стиль <b>1 км</b>"}
     ]
   },
   {
     "day": 2,
     "tasks": [
-      {"activity": "пресс", "amount": "10 раз", "description": "Скручивания лежа"},
-      {"activity": "бег", "amount": "30 минут", "description": "Легкая пробежка"},
-      {"activity": "отжимания", "amount": "10 раз", "description": "От пола или от стены"},
-      {"activity": "велосипед", "amount": "35 минут", "description": "С постоянным темпом"},
-      {"activity": "плавание", "amount": "35 минут", "description": "Работа над техникой"}
+      {"activity": "пресс", "amount": "10", "description": "Скручивания лежа <b>10 раз</b>"},
+      {"activity": "бег", "amount": "3", "description": "Легкая пробежка <b>3 км</b>"},
+      {"activity": "отжимания", "amount": "10", "description": "От пола или от стены <b>10 раз</b>"},
+      {"activity": "велосипед", "amount": "35 минут", "description": "С постоянным темпом <b>7 км</b>"},
+      {"activity": "плавание", "amount": "1", "description": "Работа над техникой <b>1 км</b>"}
     ]
   },
   {
     "day": 3,
     "tasks": [
-      {"activity": "подтягивания", "amount": "10 раз", "description": "Широкая постановка рук"},
-      {"activity": "приседания", "amount": "20 раз", "description": "С широкой постановкой ног"},
-      {"activity": "ходьба", "amount": "40 минут", "description": "Скандинавская ходьба"},
-      {"activity": "велосипед", "amount": "40 минут", "description": "По ровной местности"},
-      {"activity": "плавание", "amount": "40 минут", "description": "С доской для ног"}
+      {"activity": "подтягивания", "amount": "10", "description": "Широкая постановка рук <b>10 раз</b>"},
+      {"activity": "приседания", "amount": "20", "description": "С широкой постановкой ног <b>20 раз</b>"},
+      {"activity": "ходьба", "amount": "2", "description": "Скандинавская ходьба <b>2 км</b>"},
+      {"activity": "велосипед", "amount": "8", "description": "По ровной местности <b>8 км</b>"},
+      {"activity": "плавание", "amount": "1.2", "description": "С доской для ног <b>1.2 км</b>"}
     ]
   },
   {
     "day": 4,
     "tasks": [
-      {"activity": "бег", "amount": "35 минут", "description": "С интервалами ходьбы"},
-      {"activity": "пресс", "amount": "15 раз", "description": "Подъем ног лежа"},
-      {"activity": "отжимания", "amount": "12 раз", "description": "Средняя постановка рук"},
-      {"activity": "велосипед", "amount": "45 минут", "description": "С легким сопротивлением"},
-      {"activity": "плавание", "amount": "45 минут", "description": "Разные стили"}
+      {"activity": "бег", "amount": "4", "description": "С интервалами ходьбы <b>4 км</b>"},
+      {"activity": "пресс", "amount": "15", "description": "Подъем ног лежа <b>15 раз</b>"},
+      {"activity": "отжимания", "amount": "12", "description": "Средняя постановка рук <b>12 раз</b>"},
+      {"activity": "велосипед", "amount": "9", "description": "С легким сопротивлением <b>9 км</b>"},
+      {"activity": "плавание", "amount": "1.5", "description": "Разные стили <b>1.5 км</b>"}
     ]
   },
   {
     "day": 5,
     "tasks": [
-      {"activity": "приседания", "amount": "25 раз", "description": "Плие-приседания"},
-      {"activity": "подтягивания", "amount": "12 раз", "description": "Средний хват"},
-      {"activity": "ходьба", "amount": "45 минут", "description": "В гору или по ступенькам"},
-      {"activity": "велосипед", "amount": "50 минут", "description": "С умеренным сопротивлением"},
-      {"activity": "плавание", "amount": "50 минут", "description": "На выносливость"}
+      {"activity": "приседания", "amount": "25", "description": "Плие-приседания <b>25 раз</b>"},
+      {"activity": "подтягивания", "amount": "12", "description": "Средний хват <b>12 раз</b>"},
+      {"activity": "ходьба", "amount": "2", "description": "В гору или по ступенькам <b>2 км</b>"},
+      {"activity": "велосипед", "amount": "9", "description": "С умеренным сопротивлением <b>9 км</b>"},
+      {"activity": "плавание", "amount": "2", "description": "На выносливость <b>2 км</b>"}
     ]
   },
   {
