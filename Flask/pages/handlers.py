@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, AnonymousUserMixin
-from Flask.database.database import User, Premium
+
+from Flask.database.database import User, Premium, Statics
+from Flask.database.constants import NAMES
 from Flask.functions.functions import get_tasks
 
 
@@ -28,6 +30,18 @@ def handlers(app, session):
         task = get_tasks(user, session)
         exec(f'task.task{task_id} = True')
         user.tasks_amount += 1
+
+        statics = session.query(Statics).filter(Statics.user_id == user.id).first()
+        if task_id == '1':
+            text = task.text1.split('__')
+        elif task_id == '2':
+            text = task.text2.split('__')
+        elif task_id == '3':
+            text = task.text3.split('__')
+
+        print(task_id)
+        type_task, amount = NAMES[text[0]], int(text[1])
+        exec(f'statics.{type_task} += amount')
         session.commit()
 
         return jsonify({

@@ -18,3 +18,14 @@ ICONS = {
     'ходьба': '<i class="fa-solid fa-person-walking"></i>',
     'other': '<i class="fa-solid fa-fire-flame-curved"></i>'
 }
+
+NAMES = {
+    'велосипед': 'kilometre_bicycle',
+    'плавание': 'kilometre_swimming',
+    'бег': 'kilometres',
+    'ходьба': 'kilometres',
+    'пресс': 'press',
+    'отжимания': 'push_up',
+    'подтягивания': 'pull_up',
+    'приседания': 'squats',
+}
