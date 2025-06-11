@@ -1,25 +1,28 @@
-import json
 import datetime
 from random import randint, sample
-from pprint import pprint
+
 from Flask.database.database import User, Tasks
 from Flask.database.constants import TASKS
 
+def get_days(user, date_only=False):
+    date_now = datetime.datetime.now().date()
+    if date_only:
+        return date_now
+    return (date_now - user.created_date.date()).days
+
 
 def get_tasks(user, session):
-    date_now = datetime.datetime.now().date().strftime("%Y-%m-%d")
-    result = session.query(Tasks).filter((Tasks.user_id == user.id) & (Tasks.date == date_now)).all()
+    date_now = get_days(user, date_only=True).strftime("%Y-%m-%d")
+    result = session.query(Tasks).filter((Tasks.user_id == user.id) & (Tasks.date == date_now)).first()
     if not result:
         generate_task(user, session)
         result = session.query(Tasks).filter((Tasks.user_id == user.id) & (Tasks.date == date_now)).first()
 
-    print(result)
     return result
 
 
 def generate_task(user: User, session):
-    date_now = datetime.datetime.now().date()
-    days = (date_now - user.created_date.date()).days
+    days = get_days(user)
 
     tasks = TASKS[days]
     res = {'day': tasks['day']}

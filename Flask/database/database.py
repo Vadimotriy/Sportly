@@ -17,6 +17,7 @@ class User(Base, UserMixin):
     hashed_password = Column(String, nullable=True)
     created_date = Column(DateTime, default=datetime.datetime.now().date())
     premium = Column(Integer, default=0)
+    tasks_amount = Column(Integer, default=0)
 
     bike = Column(Boolean, default=False)
     swimming = Column(Boolean, default=False)
@@ -60,14 +61,14 @@ class Statics(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'))
 
-    kilometres = Column(Integer, nullable=True)
-    kilometre_bicycle = Column(Integer, nullable=True)
-    kilometre_swimming = Column(Integer, nullable=True)
+    kilometres = Column(Integer, default=0)
+    kilometre_bicycle = Column(Integer, default=0)
+    kilometre_swimming = Column(Integer, default=0)
 
-    push_up = Column(Integer, nullable=True)
-    pull_up = Column(Integer, nullable=True)
-    press = Column(Integer, nullable=True)
-    squats = Column(Integer, nullable=True)
+    push_up = Column(Integer, default=0)
+    pull_up = Column(Integer, default=0)
+    press = Column(Integer, default=0)
+    squats = Column(Integer, default=0)
 
     user = relationship('User', back_populates='statics')
 

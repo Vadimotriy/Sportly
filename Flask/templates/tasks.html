@@ -58,10 +58,13 @@
                 <i class="fas fa-running"></i>
             </div>
             <div class="task-content">
-                <h3 class="task-title">Бег</h3>
-                <p class="task-description">Пробежка в среднем темпе продолжительностью 30 минут. Старайтесь
-                    поддерживать постоянный темп.</p>
-                <button class="complete-btn" data-task-id="1">Выполнено</button>
+                <h3 class="task-title">{{ task1_activity }}</h3>
+                <p class="task-description">{{ task1_description | safe }}</p>
+                {% if task1_status %}
+                    <button class="complete-btn completed" disabled data-task-id="1">✓ Выполнено</button>
+                {% else %}
+                    <button class="complete-btn" data-task-id="1">Выполнено</button>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -73,10 +76,13 @@
                 <i class="fas fa-fire-alt"></i>
             </div>
             <div class="task-content">
-                <h3 class="task-title">Приседания</h3>
-                <p class="task-description">Выполните 50 приседаний. Можно разбить на подходы по 10-15 повторений с
-                    коротким отдыхом.</p>
-                <button class="complete-btn" data-task-id="2">Выполнено</button>
+                <h3 class="task-title">{{ task2_activity }}</h3>
+                <p class="task-description">{{ task2_description | safe }}</p>
+                {% if task2_status %}
+                    <button class="complete-btn completed" disabled data-task-id="2">✓ Выполнено</button>
+                {% else %}
+                    <button class="complete-btn" data-task-id="2">Выполнено</button>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -88,10 +94,13 @@
                 <i class="fas fa-water"></i>
             </div>
             <div class="task-content">
-                <h3 class="task-title">Плавание</h3>
-                <p class="task-description">Проплывите 500 метров вольным стилем. Сосредоточьтесь на технике
-                    дыхания.</p>
-                <button class="complete-btn" data-task-id="3">Выполнено</button>
+                <h3 class="task-title">{{ task3_activity }}</h3>
+                <p class="task-description">{{ task3_description | safe }}</p>
+                {% if task3_status %}
+                    <button class="complete-btn completed" disabled data-task-id="3">✓ Выполнено</button>
+                {% else %}
+                    <button class="complete-btn" data-task-id="3">Выполнено</button>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -279,3 +279,127 @@ body {
         padding: 20px;
     }
 }
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo-text, .user-info, .nav-text, .attempt-title, .attempt-subtitle {
+        display: none;
+    }
+
+    .logo {
+        justify-content: center;
+        padding: 0 0 20px 0;
+    }
+
+    .user-profile {
+        justify-content: center;
+    }
+
+    .nav-item {
+        justify-content: center;
+    }
+
+    .nav-item i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+
+    .attempt-counter {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 10px;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+        padding: 0;
+        border-bottom: none;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .user-profile {
+        padding: 0;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex: 1;
+        justify-content: space-around;
+    }
+
+    .nav-item {
+        padding: 10px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-item.active, .nav-item:hover {
+        border-left: none;
+        border-bottom: 3px solid var(--sport-green);
+        background: transparent;
+    }
+
+    .attempt-counter {
+        margin: 0 0 0 15px;
+        padding: 8px 12px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .warning-box {
+        width: 100%;
+    }
+    .sidebar {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        margin-right: 5px;
+    }
+
+    .user-profile {
+        margin-right: 5px;
+    }
+
+    .nav-menu {
+        order: 3;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .attempt-counter {
+        margin-left: auto;
+    }
+
+    .diet-form-container {
+        padding: 20px;
+    }
+}

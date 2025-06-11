@@ -1,7 +1,7 @@
 import re
 
 from flask import Flask, render_template, request, redirect, url_for, flash
-from Flask.database.database import User
+from Flask.database.database import User, Statics
 from flask_login import login_user, logout_user, login_required
 
 
@@ -40,6 +40,10 @@ def registr(app, session):
                 user = User(name=name, email=email)
                 user.set_password(password)
                 session.add(user)
+                session.commit()
+
+                statistic = Statics(user_id=user.id)
+                session.add(statistic)
                 session.commit()
 
                 flash('Регистрация прошла успешно! Теперь вы можете войти.', 'success')

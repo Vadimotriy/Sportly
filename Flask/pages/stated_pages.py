@@ -10,7 +10,7 @@ def stated_pages(app, session):
         if current_user.is_authenticated:
             name = current_user.name
             name = name if len(name) < 10 else name[:7] + '...'
-            return render_template('index_not_logged.html', text=current_user.name)
+            return render_template('index_not_logged.html', text=name)
         else:
             return render_template('index_not_logged.html', text="Войти", logged=0)
 

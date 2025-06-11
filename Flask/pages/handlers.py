@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, AnonymousUserMixin
 from Flask.database.database import User, Premium
+from Flask.functions.functions import get_tasks
 
 
 def handlers(app, session):
@@ -16,16 +17,18 @@ def handlers(app, session):
             user.swimming = data['value']
         session.commit()
 
-        print(f"Получено: {setting_name} = {data['value']}")
-
         return jsonify({"status": "success", "received": data})
 
     @app.route('/complete_task', methods=['POST'])
     def complete_task():
+        user = current_user
         data = request.get_json()
         task_id = data.get('task_id')
 
-        print(f'Задача {task_id} выполнена пользователем.')
+        task = get_tasks(user, session)
+        exec(f'task.task{task_id} = True')
+        user.tasks_amount += 1
+        session.commit()
 
         return jsonify({
             'status': 'success',
