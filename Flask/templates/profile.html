@@ -88,7 +88,7 @@
                         <div class="setting-description">Добавляет велосипедные тренировки в ежедневные задания</div>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="bicycle-toggle" {% if include_bicycle %}checked{% endif %}>
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -102,7 +102,7 @@
                         <div class="setting-description">Добавляет плавательные тренировки в ежедневные задания</div>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="swim-toggle" {% if include_swim %}checked{% endif %}>
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -112,28 +112,71 @@
 
         <!-- Последний рацион -->
         {% if meal == 1 %}
-            <div class="diet-plan">
-                <div class="diet-header">
-                    <h2 class="section-title">Последний рацион от ИИ</h2>
-                    <div class="diet-date">{{ date }}</div>
-                </div>
-
-                {{ meals | safe }}
-
+        <div class="diet-plan">
+            <div class="diet-header">
+                <h2 class="section-title">Последний рацион от ИИ</h2>
+                <div class="diet-date">{{ date }}</div>
             </div>
+
+            {{ meals | safe }}
+
+        </div>
         {% endif %}
     </div>
 </div>
 
 <script>
-    // Переключение настроек
-    document.querySelectorAll('.toggle-switch input').forEach(switchEl => {
-        switchEl.addEventListener('change', function () {
-            const settingName = this.closest('.setting-item').querySelector('.setting-title').textContent;
-            const action = this.checked ? 'включена' : 'выключена';
-            alert(`Настройка "${settingName}" ${action}`);
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('swim-toggle');
 
-            // Здесь будет отправка данных на сервер
+        checkbox.addEventListener('change', function () {
+            const isChecked = checkbox.checked;
+
+            fetch('/update_setting', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    setting: 'include_swim',
+                    value: isChecked
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Успех:', data);
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkbox = document.getElementById('bicycle-toggle');
+
+        checkbox.addEventListener('change', function () {
+            const isChecked = checkbox.checked;
+
+            fetch('/update_setting', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    setting: 'include_bicycle',
+                    value: isChecked
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Успех:', data);
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
         });
     });
 </script>
