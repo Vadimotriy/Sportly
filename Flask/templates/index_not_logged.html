@@ -115,46 +115,12 @@
             <div class="dashboard-content">
                 <div class="dashboard-text">
                     <h2 class="section-title">Интуитивная статистика вашего прогресса</h2>
-                    <p>Наш умный дашборд предоставляет полную картину вашей активности, питания и прогресса. Видите, как ваши усилия превращаются в результаты!</p>
-                    <p>Анализируйте тенденции, сравнивайте показатели за разные периоды и получайте рекомендации по улучшению ваших результатов.</p>
+                    <p>Наш умный дашборд предоставляет полную картину вашей активности. Видите, как ваши усилия превращаются в результаты!</p>
+                    <p>Анализируйте тенденции, сравнивайте показатели и получайте рекомендации по улучшению ваших результатов.</p>
                 </div>
                 
                 <div class="dashboard-image">
-                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0" y="0" width="600" height="400" rx="20" fill="#2d3039"/>
-                        <rect x="30" y="30" width="540" height="340" rx="10" fill="#1f2229" stroke="#ff3495" stroke-width="2"/>
-                        <text x="50" y="70" fill="#a7fc00" font-size="24" font-weight="bold">Ваш прогресс</text>
-                        <path d="M50 100 L550 100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        <path d="M50 150 L550 150" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        <path d="M50 200 L550 200" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        <path d="M50 250 L550 250" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        <path d="M50 300 L550 300" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        <path d="M50 350 L550 350" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                        
-                        <!-- Графики -->
-                        <path d="M80 300 L120 250 L160 280 L200 220 L240 260 L280 200 L320 240 L360 180 L400 210 L440 150 L480 190 L520 140" stroke="#a7fc00" stroke-width="3" fill="none"/>
-                        <path d="M80 280 L120 200 L160 230 L200 180 L240 210 L280 150 L320 190 L360 140 L400 170 L440 120 L480 160 L520 110" stroke="#ff3495" stroke-width="3" fill="none"/>
-                        
-                        <!-- Точки данных -->
-                        <circle cx="80" cy="300" r="4" fill="#a7fc00"/>
-                        <circle cx="120" cy="250" r="4" fill="#a7fc00"/>
-                        <circle cx="160" cy="280" r="4" fill="#a7fc00"/>
-                        <circle cx="200" cy="220" r="4" fill="#a7fc00"/>
-                        <circle cx="240" cy="260" r="4" fill="#a7fc00"/>
-                        <circle cx="280" cy="200" r="4" fill="#a7fc00"/>
-                        <circle cx="320" cy="240" r="4" fill="#a7fc00"/>
-                        <circle cx="360" cy="180" r="4" fill="#a7fc00"/>
-                        <circle cx="400" cy="210" r="4" fill="#a7fc00"/>
-                        <circle cx="440" cy="150" r="4" fill="#a7fc00"/>
-                        <circle cx="480" cy="190" r="4" fill="#a7fc00"/>
-                        <circle cx="520" cy="140" r="4" fill="#a7fc00"/>
-                        
-                        <!-- Легенда -->
-                        <rect x="400" y="50" width="20" height="10" fill="#a7fc00"/>
-                        <text x="430" y="60" fill="#fff" font-size="14">Активность</text>
-                        <rect x="400" y="70" width="20" height="10" fill="#ff3495"/>
-                        <text x="430" y="80" fill="#fff" font-size="14">Результаты</text>
-                    </svg>
+                    <img src="{{ url_for('static', filename='images/statics.png') }}" alt="Image">
                 </div>
             </div>
         </div>

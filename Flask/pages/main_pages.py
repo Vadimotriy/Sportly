@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, AnonymousUserMixin
-from Flask.database.database import User, Premium
+from Flask.database.database import User, Premium, Statics
 from Flask.functions.functions import get_tasks, get_days
 from Flask.database.constants import ICONS
 
@@ -71,7 +71,50 @@ def main_pages(app, session):
                 'task3_activity': text3[0].capitalize(),
             }
 
-            return render_template('tasks.html', **data,)
+            return render_template('tasks.html', **data)
         else:
             return redirect('/login')
 
+    @app.route("/statics")
+    def statics():
+        if current_user.is_authenticated:
+            user = current_user
+            name = user.name if len(user.name) < 10 else user.name[:7] + '...'
+
+            statics = session.query(Statics).filter(Statics.user_id == user.id).first()
+            total = statics.kilometres + statics.kilometre_swimming + statics.kilometre_bicycle
+            total_act = statics.push_up + statics.pull_up + statics.press + statics.squats
+
+            data = {
+                'name': name, 'letter': name[0].upper(),
+
+                'kilometres': statics.kilometres,
+                'kilometres_stat': round((statics.kilometres / total) * 100),
+
+                'bicycle': user.bike,
+                'kilometre_bicycle': statics.kilometre_bicycle,
+                'bicycle_stat': round((statics.kilometre_bicycle / total) * 100),
+
+                'swimming': user.swimming,
+                'kilometre_swimming': statics.kilometre_swimming,
+                'swimming_stat': round((statics.kilometre_swimming / total) * 100),
+
+                'pull_up': statics.pull_up, 'pull_up_stat': round((statics.pull_up / total_act) * 100),
+                'push_up': statics.push_up, 'push_up_stat': round((statics.push_up / total_act) * 100),
+                'press': statics.press, 'press_stat': round((statics.press / total) * 100),
+                'squats': statics.squats, 'squats_stat': round((statics.squats / total) * 100),
+            }
+
+            return render_template('statics.html', **data)
+        else:
+            return redirect('/login')
+
+    @app.route('/main', methods=['GET', 'POST'])
+    def main_pa():
+        if current_user.is_authenticated:
+            user = current_user
+            name = user.name if len(user.name) < 10 else user.name[:7] + '...'
+
+            return render_template('main.html', name=name, letter=name[0].upper())
+        else:
+            return redirect('/login')

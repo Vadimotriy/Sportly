@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - ИИ Диетолог</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<!-- Боковая панель -->
+
+<div class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">ㅤ</div>
+        <div class="logo-text">SPORTLY</div>
+    </div>
+
+    <div class="user-profile">
+        <div class="avatar_side_bar">{{ letter }}</div>
+        <div class="user-info">
+            <div class="user-name">{{ name }}</div>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span class="nav-text">Главная</span>
+        </a>
+        <a href="/statics" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-text">Статистика</span>
+        </a>
+        <a href="/premium/dietolog" class="nav-item">
+            <i class="fas fa-robot"></i>
+            <span class="nav-text">ИИ-диетолог</span>
+        </a>
+        <a href="/tasks" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-text">Задания</span>
+        </a>
+        <a href="/profile" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span class="nav-text">Профиль</span>
+        </a>
+    </div>
+</div>
+
+<!-- Основное содержимое -->
+<div class="main-content">
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Главная</h1>
+        </div>
+    </div>
+
+    <div class="warning-main">
+        <div class="warning-box">
+            <div class="warning-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Важная информация
+            </div>
+            <p>Эта форма предназначена для учета <strong>дополнительной</strong> активности, помимо ежедневных
+                заданий. Пожалуйста, не учитывайте показатели из заданий, которые вы уже выполнили сегодня.</p><br>
+            <p>Все данные используются исключительно для анализа вашей личной активности. Здесь нет соревнования,
+                поэтому обманывать систему нет смысла - вы делаете это только для себя.</p>
+        </div>
+    </div>
+
+    <div class="form-main">
+        <form class="activity-form" method="POST" action="/submit_activity">
+            <div class="form-group">
+                <label for="run_walk"><i class="fas fa-running"></i> Бег и ходьба</label>
+                <div class="input-unit">
+                    <input type="number" step="0.1" class="form-control" id="run_walk" name="run_walk"
+                           placeholder="0.0">
+                    <span>км</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="bike"><i class="fas fa-bicycle"></i> Велосипед</label>
+                <div class="input-unit">
+                    <input type="number" step="0.1" class="form-control" id="bike" name="bike" placeholder="0.0">
+                    <span>км</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="swim"><i class="fas fa-swimmer"></i> Плавание</label>
+                <div class="input-unit">
+                    <input type="number" step="0.1" class="form-control" id="swim" name="swim" placeholder="0.0">
+                    <span>км</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pushups"><i class="fas fa-fire-alt"></i> Отжимания</label>
+                <input type="number" class="form-control" id="pushups" name="pushups" placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label for="squats"><i class="fas fa-shoe-prints"></i> Приседания</label>
+                <input type="number" class="form-control" id="squats" name="squats" placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label for="abs"><i class="fas fa-heartbeat"></i> Упражнения на пресс</label>
+                <input type="number" class="form-control" id="abs" name="abs" placeholder="0">
+            </div>
+
+            <div class="form-group">
+                <label for="pullups"><i class="fas fa-dumbbell"></i> Подтягивания</label>
+                <input type="number" class="form-control" id="pullups" name="pullups" placeholder="0">
+            </div>
+
+            <div class="button-box">
+                <button type="submit" class="cta-button">Записать</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Можно добавить валидацию формы
+    document.querySelector('.activity-form').addEventListener('submit', function (e) {
+        const inputs = this.querySelectorAll('input[type="number"]');
+        let isEmpty = true;
+
+        inputs.forEach(input => {
+            if (input.value && parseFloat(input.value) > 0) {
+                isEmpty = false;
+            }
+        });
+
+        if (isEmpty) {
+            e.preventDefault();
+            alert('Пожалуйста, укажите хотя бы один показатель вашей активности');
+        }
+    });
+</script>
+</body>
+</html>

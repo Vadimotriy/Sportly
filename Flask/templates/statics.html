@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportly - Статистика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/statics.css') }}">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        <div class="logo-icon">ㅤ</div>
+        <div class="logo-text">SPORTLY</div>
+    </div>
+
+    <div class="user-profile">
+        <div class="avatar_side_bar">{{ letter }}</div>
+        <div class="user-info">
+            <div class="user-name">{{ name }}</div>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="/main" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span class="nav-text">Главная</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-text">Статистика</span>
+        </a>
+        <a href="/premium/dietolog" class="nav-item">
+            <i class="fas fa-robot"></i>
+            <span class="nav-text">ИИ-диетолог</span>
+        </a>
+        <a href="/tasks" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-text">Задания</span>
+        </a>
+        <a href="/profile" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span class="nav-text">Профиль</span>
+        </a>
+    </div>
+</div>
+<!-- Основное содержимое -->
+<div class="main-content">
+    <div class="page-header">
+        <h1 class="page-title">Ваша статистика</h1>
+    </div>
+
+    <!-- Карточки с общей статистикой -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3><i class="fas fa-running"></i> Бег и ходьба</h3>
+            <div class="stat-value-large">{{ kilometres }}<span class="stat-unit"> км</span></div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{ kilometres_stat }}%"></div>
+            </div>
+        </div>
+    </div>
+
+    {% if bicycle %}
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3><i class="fas fa-bicycle"></i> Велосипед</h3>
+            <div class="stat-value-large">{{ kilometre_bicycle }}<span class="stat-unit"> км</span></div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{ bicycle_stat }}%"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if swimming %}
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3><i class="fas fa-swimmer"></i> Плавание</h3>
+            <div class="stat-value-large">{{ kilometre_swimming }}<span class="stat-unit"> км</span></div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{ swimming_stat }}%"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="border_table">
+        <!-- Детальная таблица -->
+        <div class="table-container">
+            <h3 class="chart-title">Детальная статистика</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Тип активности</th>
+                        <th>Всего</th>
+                        <th>Прогресс</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Отжимания</td>
+                        <td>{{ push_up }} раз</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ push_up_stat }}%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Подтягивания</td>
+                        <td>{{ pull_up }} раз</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ pull_up_stat }}%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Приседания</td>
+                        <td>{{ squats }} раз</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ squats_stat }}%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Пресс</td>
+                        <td>{{ press }} раз</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ press_stat }}%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

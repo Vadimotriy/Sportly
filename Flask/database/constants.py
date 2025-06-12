@@ -13,7 +13,7 @@ API_KEY = os.getenv('API_KEY')
 
 ICONS = {
     'велосипед': '<i class="fa-solid fa-bicycle"></i>',
-    'плавание': '<i class="fa-solid fa-water"></i>',
+    'плавание': '<i class="fas fa-swimmer"></i>',
     'бег': '<i class="fa-solid fa-person-running"></i>',
     'ходьба': '<i class="fa-solid fa-person-walking"></i>',
     'other': '<i class="fa-solid fa-fire-flame-curved"></i>'
