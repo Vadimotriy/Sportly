@@ -88,15 +88,6 @@ def handlers(session: Session):
         await message.answer(text='Вы вышли с аккаунта.', reply_markup=keyboard)
         session.commit()
 
-    @router.message(F.text == 'Выйти')
-    async def logout(message: types.Message):
-        user = session.query(User).filter(User.id == message.from_user.id).first()
-        user.logged = False
-        user.flask = None
-        keyboard = make_keyboard_inline(['Войти'], 1, message.from_user.id)
-        await message.answer(text='Вы вышли с аккаунта.', reply_markup=keyboard)
-        session.commit()
-
     @router.message(F.text == 'Ежедневные задания')
     async def tasks(message: types.Message):
         user = session.query(User).filter(User.id == message.from_user.id).first()

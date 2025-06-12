@@ -20,7 +20,7 @@ session = Session()
 
 if __name__ == '__main__':
     handlers(session)
-    admin(session)
+    admin(session, bot)
     callbacks(session)
 
     dp.include_router(router)
