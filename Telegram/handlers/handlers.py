@@ -1,6 +1,7 @@
 from aiogram import types, F, Router, Bot
 from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
+from aiogram.utils import keyboard
 
 from Telegram.database.constants import *
 from Telegram.database.functions import make_keyboard, make_keyboard_inline
@@ -96,4 +97,15 @@ def handlers(session: Session):
         await message.answer(text='Вы вышли с аккаунта.', reply_markup=keyboard)
         session.commit()
 
-    @router.message(F.text == '')
+    @router.message(F.text == 'Ежедневные задания')
+    async def tasks(message: types.Message):
+        user = session.query(User).filter(User.id == message.from_user.id).first()
+        tasks = get_tasks(user.flask)
+        text1, text2, text3 = tasks['task1'][0].split('__'), tasks['task2'][0].split('__'), tasks['task3'][0].split(
+            '__')
+
+        text = f"""{SMILES[tasks['task1'][1]]} Задание 1: <u>{text1[0]}</u> - {text1[2].lower()}.\n
+{SMILES[tasks['task2'][1]]} Задание 2: <u>{text2[0]}</u> - {text2[2].lower()}.\n
+{SMILES[tasks['task3'][1]]} Задание 3: <u>{text3[0]}</u> - {text3[2].lower()}."""
+
+        await message.answer(text=text)
