@@ -15,7 +15,7 @@
 }
 
 body {
-    background: var(--sport-dark-gradient);
+    background-color: var(--sport-dark);
     color: var(--sport-light);
     min-height: 100vh;
     display: flex;

@@ -93,11 +93,11 @@ def main_pages(app, session):
                 'kilometres': statics.kilometres,
                 'kilometres_stat': round((statics.kilometres / total) * 100),
 
-                'bicycle': user.bike,
+                'bicycle': True,
                 'kilometre_bicycle': statics.kilometre_bicycle,
                 'bicycle_stat': round((statics.kilometre_bicycle / total) * 100),
 
-                'swimming': user.swimming,
+                'swimming': True,
                 'kilometre_swimming': statics.kilometre_swimming,
                 'swimming_stat': round((statics.kilometre_swimming / total) * 100),
 

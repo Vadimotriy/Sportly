@@ -1,8 +1,10 @@
 import re
 
 from flask import Flask, render_template, request, redirect, url_for, flash
+from sqlalchemy.sql.functions import user
+
 from Flask.database.database import User, Statics
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, current_user
 
 
 def registr(app, session):
@@ -83,7 +85,7 @@ def registr(app, session):
         return render_template('login.html')
 
     @app.route('/logout')
-    @login_required
     def logout():
-        logout_user()
+        if current_user.is_authenticated:
+            logout_user()
         return redirect("/index")
