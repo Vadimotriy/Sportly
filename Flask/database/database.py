@@ -1,6 +1,6 @@
 import datetime
 import json
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, ForeignKey, FLOAT
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -61,9 +61,9 @@ class Statics(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'))
 
-    kilometres = Column(Integer, default=0)
-    kilometre_bicycle = Column(Integer, default=0)
-    kilometre_swimming = Column(Integer, default=0)
+    kilometres = Column(FLOAT, default=0.0)
+    kilometre_bicycle = Column(FLOAT, default=0.0)
+    kilometre_swimming = Column(FLOAT, default=0.0)
 
     push_up = Column(Integer, default=0)
     pull_up = Column(Integer, default=0)

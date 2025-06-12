@@ -83,7 +83,9 @@ def main_pages(app, session):
 
             statics = session.query(Statics).filter(Statics.user_id == user.id).first()
             total = statics.kilometres + statics.kilometre_swimming + statics.kilometre_bicycle
+            total = 1 if total == 0 else total
             total_act = statics.push_up + statics.pull_up + statics.press + statics.squats
+            total_act = 1 if total_act == 0 else total_act
 
             data = {
                 'name': name, 'letter': name[0].upper(),
@@ -101,8 +103,8 @@ def main_pages(app, session):
 
                 'pull_up': statics.pull_up, 'pull_up_stat': round((statics.pull_up / total_act) * 100),
                 'push_up': statics.push_up, 'push_up_stat': round((statics.push_up / total_act) * 100),
-                'press': statics.press, 'press_stat': round((statics.press / total) * 100),
-                'squats': statics.squats, 'squats_stat': round((statics.squats / total) * 100),
+                'press': statics.press, 'press_stat': round((statics.press / total_act) * 100),
+                'squats': statics.squats, 'squats_stat': round((statics.squats / total_act) * 100),
             }
 
             return render_template('statics.html', **data)
