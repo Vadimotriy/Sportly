@@ -116,7 +116,38 @@ def main_pages(app, session):
         if current_user.is_authenticated:
             user = current_user
             name = user.name if len(user.name) < 10 else user.name[:7] + '...'
-            if request.method == 'GET':
+            if request.method == 'POST':
+                kilometre = request.form['kilometre']
+                bicycle = request.form['bicycle']
+                swim = request.form['swim']
+                push_up = request.form['push_up']
+                squats = request.form['squats']
+                press = request.form['press']
+                pull_up = request.form['pull_up']
+
+                statics = session.query(Statics).filter(Statics.user_id == user.id).first()
+                if kilometre not in [0.0, 0, '']:
+                    statics.kilometres += float(kilometre)
+                    statics.kilometres = 0.0 if statics.kilometres < 0.0 else statics.kilometres
+                if bicycle not in [0.0, 0, '']:
+                    statics.kilometre_bicycle += float(bicycle)
+                    statics.kilometre_bicycle = 0.0 if statics.kilometre_bicycle < 0.0 else statics.kilometre_bicycle
+                if swim not in [0.0, 0, '']:
+                    statics.kilometre_swimming += float(swim)
+                    statics.kilometre_swimming = 0.0 if statics.kilometre_swimming < 0.0 else statics.kilometre_swimming
+
+                if push_up not in [0, '']:
+                    statics.push_up += int(push_up)
+                    statics.push_up = 0 if statics.push_up < 0 else statics.push_up
+                if pull_up not in [0, '']:
+                    statics.pull_up += int(pull_up)
+                    statics.pull_up = 0 if statics.pull_up < 0 else statics.pull_up
+                if squats not in [0, '']:
+                    statics.squats += int(squats)
+                    statics.squats = 0 if statics.squats < 0 else statics.squats
+                if press not in [0, '']:
+                    statics.press += int(press)
+                    statics.press = 0 if statics.press < 0 else statics.press
 
                 return render_template('main.html', name=name, letter=name[0].upper())
             else:
