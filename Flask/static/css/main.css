@@ -205,7 +205,8 @@ body {
     border-radius: 15px;
     padding: 30px;
     border: 1px solid var(--sport-gray);
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .form-group {
@@ -295,6 +296,12 @@ body {
 
     .main-content {
         padding: 20px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .warning-box {
+        width: 90%;
     }
 }
 
