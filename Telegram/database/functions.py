@@ -4,7 +4,7 @@ from aiogram.types import InlineKeyboardButton, KeyboardButton
 from Telegram.database.constants import BUTTONS, BUTTONS_ADMIN
 
 
-def make_keyboard(buttons, adjust):
+def make_keyboard(buttons=BUTTONS['buttons'], adjust=BUTTONS['adjust']):
     builder = ReplyKeyboardBuilder()
     for i in buttons:
         builder.add(KeyboardButton(text=i))

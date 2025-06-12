@@ -9,6 +9,7 @@ from Telegram.database.database import Session
 from Telegram.database.constants import API_TOKEN
 from Telegram.handlers.handlers import router, handlers
 from Telegram.handlers.admin import router_for_admin, admin
+from Telegram.handlers.callbacks import router_for_callbacks, callbacks
 
 
 logging.basicConfig(level=logging.INFO)
@@ -20,9 +21,11 @@ session = Session()
 if __name__ == '__main__':
     handlers(session)
     admin(session)
+    callbacks(session)
 
     dp.include_router(router)
     dp.include_router(router_for_admin)
+    dp.include_router(router_for_callbacks)
 
 
     async def main():
