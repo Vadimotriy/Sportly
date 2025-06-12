@@ -17,5 +17,8 @@ def check_password(email, password):
 
 def get_tasks(flask_id):
     response = requests.get(f'http://127.0.0.1:5000/{PASSWORD}/tasks/{flask_id}')
-    print(response.json())
+    return response.json()
+
+def get_statistic(flask_id):
+    response = requests.get(f'http://127.0.0.1:5000/{PASSWORD}/statistic/{flask_id}')
     return response.json()

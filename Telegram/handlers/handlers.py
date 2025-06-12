@@ -109,3 +109,20 @@ def handlers(session: Session):
 {SMILES[tasks['task3'][1]]} Задание 3: <u>{text3[0]}</u> - {text3[2].lower()}."""
 
         await message.answer(text=text)
+
+    @router.message(F.text == 'Перейти на сайт')
+    async def site(message: types.Message):
+        await message.answer('http://127.0.0.1:5000/profile')
+
+    @router.message(F.text == 'Статистика')
+    async def unk(message: types.Message):
+        user = session.query(User).filter(User.id == message.from_user.id).first()
+        statistic = get_statistic(user.flask)
+
+        text = ''
+        for data in statistic:
+            key, val = data[0], data[1]
+            extra = '\n' if key == '🚴 Плавание' else ''
+            text += f'{key}: {val}\n{extra}'
+
+        await message.answer(text=text)

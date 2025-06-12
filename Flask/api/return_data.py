@@ -27,10 +27,29 @@ def return_data(app, session):
         user = session.query(User).filter(User.id == int(flask_id)).first()
         tasks = get_tasks(user, session)
 
-        d = {
+        data = {
             'task1': [tasks.text1, tasks.task1],
             'task2': [tasks.text2, tasks.task2],
             'task3': [tasks.text3, tasks.task3]
         }
 
-        return d
+        return data
+
+    @app.route(f'/{PASSWORD}/statistic/<flask_id>')
+    def return_statistic(flask_id):
+        user = session.query(User).filter(User.id == int(flask_id)).first()
+        statics = session.query(Statics).filter(Statics.user_id == user.id).first()
+
+        data = [
+            ['🏃 Бег и ходьба', f"{statics.kilometres} км"],
+            ['🏊 Велосипед', f"{statics.kilometre_bicycle} км"],
+            ['🚴 Плавание', f"{statics.kilometre_swimming} км"],
+
+            ['🔥 Подтягиваний', f"{statics.pull_up} раз"],
+            ['🔥 Отжиманий', f"{statics.push_up} раз"],
+            ['🔥 Упражнений на пресс', f"{statics.press} раз"],
+            ['🔥 Приседаний', f"{statics.squats} раз"]
+        ]
+
+        return data
+
