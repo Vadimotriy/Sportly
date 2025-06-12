@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask
 from flask_login import LoginManager
 
-from Flask.database.database import Session
-from Flask.database.database import User
+from Flask.database.database import Session, User
 
 from Flask.pages.registr import registr
 from Flask.pages.main_pages import main_pages
