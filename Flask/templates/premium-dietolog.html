@@ -168,37 +168,6 @@
     </div>
     {% endif %}
 </div>
-<script>
-    // Плавная прокрутка для навигации
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Анимация при скролле
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.feature-card, .dashboard-image, .premium-card, .testimonial-card').forEach(card => {
-        observer.observe(card);
-    });
-</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

@@ -216,7 +216,7 @@ body {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--sport-green);
+    color: var(--sport-light);
 }
 
 .form-control {
@@ -232,8 +232,7 @@ body {
 
 .form-control:focus {
     outline: none;
-    border-color: var(--sport-pink);
-    background: rgba(255, 52, 149, 0.05);
+    border-color: var(--sport-green);
 }
 
 .input-unit {

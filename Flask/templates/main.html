@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportly - ИИ Диетолог</title>
+    <title>Sportly - Главная</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="form-main">
-        <form class="activity-form" method="POST" action="/submit_activity">
+        <form class="activity-form" method="POST">
             <div class="form-group">
                 <label for="run_walk"><i class="fas fa-running"></i> Бег и ходьба (км)</label>
                 <div class="input-unit">
@@ -98,17 +98,17 @@
             </div>
 
             <div class="form-group">
-                <label for="squats"><i class="fas fa-shoe-prints"></i> Приседания</label>
+                <label for="squats"><i class="fas fa-fire-alt"></i> Приседания</label>
                 <input type="number" class="form-control" id="squats" name="squats" placeholder="0">
             </div>
 
             <div class="form-group">
-                <label for="abs"><i class="fas fa-heartbeat"></i> Упражнения на пресс</label>
+                <label for="abs"><i class="fas fa-fire-alt"></i> Упражнения на пресс</label>
                 <input type="number" class="form-control" id="abs" name="abs" placeholder="0">
             </div>
 
             <div class="form-group">
-                <label for="pullups"><i class="fas fa-dumbbell"></i> Подтягивания</label>
+                <label for="pullups"><i class="fas fa-fire-alt"></i> Подтягивания</label>
                 <input type="number" class="form-control" id="pullups" name="pullups" placeholder="0">
             </div>
 
@@ -120,13 +120,12 @@
 </div>
 
 <script>
-    // Можно добавить валидацию формы
     document.querySelector('.activity-form').addEventListener('submit', function (e) {
         const inputs = this.querySelectorAll('input[type="number"]');
         let isEmpty = true;
 
         inputs.forEach(input => {
-            if (input.value && parseFloat(input.value) > 0) {
+            if (input.value && parseFloat(input.value) != 0) {
                 isEmpty = false;
             }
         });

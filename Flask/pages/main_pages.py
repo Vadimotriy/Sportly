@@ -116,7 +116,10 @@ def main_pages(app, session):
         if current_user.is_authenticated:
             user = current_user
             name = user.name if len(user.name) < 10 else user.name[:7] + '...'
+            if request.method == 'GET':
 
-            return render_template('main.html', name=name, letter=name[0].upper())
+                return render_template('main.html', name=name, letter=name[0].upper())
+            else:
+                return render_template('main.html', name=name, letter=name[0].upper())
         else:
             return redirect('/login')
