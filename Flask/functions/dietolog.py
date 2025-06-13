@@ -3,7 +3,6 @@ import json
 import markdown
 
 from Flask.database.constants import API_KEY
-from pprint import pprint
 
 
 def analyze(age, weight, height, like, dislike, purpose, life, cant):
@@ -33,17 +32,7 @@ def analyze(age, weight, height, like, dislike, purpose, life, cant):
 
         })
     )
-    pprint(response.json())
     result = response.json()['choices'][0]['message']['content']
     result = result.replace('\n\n', '<br /><br />')
     html = markdown.markdown(result)
     return html
-
-
-if __name__ == '__main__':
-    print("start")
-    like = 'Макароны, картошка, рис, свинина, огурцы, морковь, кукуруза, фрукты, ягоды, орешки'
-    dislike = 'Помидоры, свекла, зеленый лук'
-    purpose = 'Похудеть за 2 недели'
-    life = 'Небольшие занятие спортом'
-    print(analyze(16, 65, 176, like, dislike, purpose, life, 'отсутствуют'))

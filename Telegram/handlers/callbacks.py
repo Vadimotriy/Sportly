@@ -10,7 +10,7 @@ router_for_callbacks = Router()
 def callbacks(session):
     @router_for_callbacks.callback_query(F.data.startswith('*'))
     async def callback_query(callback_query: CallbackQuery, state: FSMContext):
-        await callback_query.message.answer(text='Введите, к которой привязан аккаунт Sportly:')
+        await callback_query.message.answer(text='Введите номер телефона, к которому привязан ваш аккаунт Sportly:')
         await state.set_state(Logging.email)
         await callback_query.message.delete()
         await callback_query.answer()

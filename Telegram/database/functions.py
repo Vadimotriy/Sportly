@@ -21,3 +21,13 @@ def make_keyboard_inline(buttons, adjust, id):
 
     return builder.as_markup()
 
+
+def is_valid_number(num: str):
+    if len(num) in [11, 12]:
+        if num.startswith('+'):
+            num = num[1:]
+        if num.startswith('8'):
+            num = '7' + num[1:]
+        if len(num) == 11 and num.startswith('79') and num.isdigit():
+            return num
+    return False

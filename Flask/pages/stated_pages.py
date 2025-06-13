@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
-from flask_login import current_user, AnonymousUserMixin
-from Flask.database.database import User
+from flask import render_template
+from flask_login import current_user
 
 
 def stated_pages(app, session):
@@ -23,12 +22,3 @@ def stated_pages(app, session):
             return render_template('premium-info.html', text=name)
         else:
             return render_template('premium-info.html', text='Войти')
-
-    @app.route("/main")
-    def main():
-        if current_user.is_authenticated:
-            name = current_user.name
-            return name
-        else:
-            return redirect('/login')
-

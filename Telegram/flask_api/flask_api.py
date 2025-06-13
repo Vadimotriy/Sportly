@@ -8,7 +8,8 @@ def get_name(flask_id):
     return response.json()[0]
 
 def checkemail(email):
-    response = requests.get(f'http://127.0.0.1:5000/{PASSWORD}/email/{email}')
+    response = requests.get(f'http://127.0.0.1:5000/{PASSWORD}/num/{email}')
+    print([response.json()])
     return response.json()
 
 def check_password(email, password):

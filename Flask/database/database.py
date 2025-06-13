@@ -1,5 +1,4 @@
 import datetime
-import json
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, ForeignKey, FLOAT
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -13,7 +12,7 @@ class User(Base, UserMixin):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
-    email = Column(String, index=True, unique=True)
+    number = Column(String, index=True, unique=True)
     hashed_password = Column(String, nullable=True)
     created_date = Column(DateTime, default=datetime.datetime.now().date())
     premium = Column(Integer, default=0)
@@ -27,7 +26,7 @@ class User(Base, UserMixin):
     premiums = relationship("Premium", back_populates="user")
 
     def __repr__(self):
-        return f'Id: {self.id}; Name: {self.name}; Email: {self.email}; Premium: {self.premium}'
+        return f'Id: {self.id}; Name: {self.name}; Number: {self.number}; Premium: {self.premium}'
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)

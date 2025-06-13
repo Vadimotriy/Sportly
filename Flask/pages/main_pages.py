@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
-from flask_login import current_user, AnonymousUserMixin
-from Flask.database.database import User, Premium, Statics
+from flask import render_template, request, redirect
+from flask_login import current_user
+from Flask.database.database import Premium, Statics
 from Flask.functions.functions import get_tasks, get_days
 from Flask.database.constants import ICONS
 
@@ -22,7 +22,6 @@ def main_pages(app, session):
             num += 1 if tasks_today.task3 is True else 0
             percent_today = round((num / 3) * 100)
 
-
             data = {
                 'name': name,
                 'fullname': fullname,
@@ -42,7 +41,7 @@ def main_pages(app, session):
             else:
                 data['meal'] = 0
 
-            return render_template('profile.html', **data,)
+            return render_template('profile.html', **data, )
         else:
             return redirect('/login')
 
@@ -137,17 +136,19 @@ def main_pages(app, session):
                     statics.kilometre_swimming = 0.0 if statics.kilometre_swimming < 0.0 else statics.kilometre_swimming
 
                 if push_up not in [0, '']:
-                    statics.push_up += int(push_up)
+                    statics.push_up += round(float(push_up))
                     statics.push_up = 0 if statics.push_up < 0 else statics.push_up
                 if pull_up not in [0, '']:
-                    statics.pull_up += int(pull_up)
+                    statics.pull_up += round(float(pull_up))
                     statics.pull_up = 0 if statics.pull_up < 0 else statics.pull_up
                 if squats not in [0, '']:
-                    statics.squats += int(squats)
+                    statics.squats += round(float(squats))
                     statics.squats = 0 if statics.squats < 0 else statics.squats
                 if press not in [0, '']:
-                    statics.press += int(press)
+                    statics.press += round(float(press))
                     statics.press = 0 if statics.press < 0 else statics.press
+
+                session.commit()
 
                 return render_template('main.html', name=name, letter=name[0].upper())
             else:

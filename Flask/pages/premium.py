@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
-from flask_login import current_user, AnonymousUserMixin
+from flask import render_template, request, redirect
+from flask_login import current_user
 
-from Flask.database.database import User, Premium
+from Flask.database.database import Premium
 from Flask.functions.dietolog import analyze
 
 
