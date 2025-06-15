@@ -15,7 +15,7 @@
       {"activity": "пресс", "amount": "10", "description": "Скручивания лежа <b>10 раз</b>"},
       {"activity": "бег", "amount": "3", "description": "Легкая пробежка <b>3 км</b>"},
       {"activity": "отжимания", "amount": "10", "description": "От пола или от стены <b>10 раз</b>"},
-      {"activity": "велосипед", "amount": "35 минут", "description": "С постоянным темпом <b>7 км</b>"},
+      {"activity": "велосипед", "amount": "7", "description": "С постоянным темпом <b>7 км</b>"},
       {"activity": "плавание", "amount": "1", "description": "Работа над техникой <b>1 км</b>"}
     ]
   },
@@ -52,11 +52,11 @@
   {
     "day": 6,
     "tasks": [
-      {"activity": "пресс", "amount": "20 раз", "description": "Русские скручивания"},
-      {"activity": "бег", "amount": "40 минут", "description": "Непрерывный бег"},
-      {"activity": "отжимания", "amount": "15 раз", "description": "Узкая постановка рук"},
-      {"activity": "велосипед", "amount": "55 минут", "description": "Интервальная тренировка"},
-      {"activity": "плавание", "amount": "55 минут", "description": "Техника кроля"}
+      {"activity": "пресс", "amount": "20", "description": "Русские скручивания <b>20 раз</b>"},
+      {"activity": "бег", "amount": "40", "description": "Непрерывный бег <b>4.5 км</b>"},
+      {"activity": "отжимания", "amount": "15", "description": "Узкая постановка рук <b>15 раз</b>"},
+      {"activity": "велосипед", "amount": "10", "description": "Интервальная тренировка<b>10 км</b>"},
+      {"activity": "плавание", "amount": "2", "description": "Техника кроля <b>2 км</b>"}
     ]
   },
   {
