@@ -170,7 +170,8 @@ body {
 }
 
 .stat-card {
-    width: 900px;
+    width: 100%;
+    max-width: 800px;
     background: var(--sport-gray);
     border-radius: 15px;
     padding: 40px 30px 40px 30px;
@@ -209,7 +210,8 @@ body {
 }
 
 .table-container {
-    width: 900px;
+    width: 100%;
+    max-width: 800px;
     background: var(--sport-gray);
     border-radius: 15px;
     padding: 20px;

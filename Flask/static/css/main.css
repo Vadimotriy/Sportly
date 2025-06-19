@@ -137,13 +137,11 @@ body {
 
 /* Основное содержимое */
 .main-content {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-grow: 1;
-    padding: 30px;
-    margin: 0 auto;
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
 }
+
 .page-header {
     display: flex;
     justify-content: center;
