@@ -475,11 +475,16 @@ input:checked + .slider:before {
 /* Адаптивность */
 @media (max-width: 992px) {
     .sidebar {
-        width: 70px;
+        width: 91px;
     }
 
     .logo-text, .user-info, .nav-text, .attempt-title, .attempt-subtitle {
         display: none;
+        width: 0px;
+    }
+
+    .avatar_side_bar {
+        margin-right: 0;
     }
 
     .logo {
