@@ -108,12 +108,13 @@ body {
 }
 
 .registration-card {
-    flex: 1;
     background: var(--sport-gray);
     padding: 60px 50px;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
+    width: 100vw;
+    max-width: 500px;
 }
 
 .card-header {
@@ -177,6 +178,7 @@ body {
     font-size: 1rem;
     color: var(--sport-light);
     transition: all 0.3s ease;
+
 }
 
 .input-field:focus {
