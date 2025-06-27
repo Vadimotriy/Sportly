@@ -62,31 +62,31 @@
   {
     "day": 7,
     "tasks": [
-      {"activity": "подтягивания", "amount": "15 раз", "description": "Разные хваты"},
-      {"activity": "приседания", "amount": "30 раз", "description": "С прыжком"},
-      {"activity": "ходьба", "amount": "50 минут", "description": "Быстрым шагом"},
-      {"activity": "велосипед", "amount": "60 минут", "description": "Длительная поездка"},
-      {"activity": "плавание", "amount": "60 минут", "description": "Комплексное плавание"}
+      {"activity": "подтягивания", "amount": "15", "description": "Разные хваты <b>15 раз</b>"},
+      {"activity": "приседания", "amount": "30", "description": "С прыжком <b>30 раз</b>"},
+      {"activity": "ходьба", "amount": "4", "description": "Быстрым шагом <b>4 км</b>"},
+      {"activity": "велосипед", "amount": "15", "description": "Длительная поездка <b>15 км</b>"},
+      {"activity": "плавание", "amount": "2.3", "description": "Комплексное плавание <b>2.3 км</b>"}
     ]
   },
   {
     "day": 8,
     "tasks": [
-      {"activity": "отжимания", "amount": "18 раз", "description": "С хлопком"},
-      {"activity": "пресс", "amount": "25 раз", "description": "Велосипед лежа"},
-      {"activity": "бег", "amount": "45 минут", "description": "По пересеченной местности"},
-      {"activity": "велосипед", "amount": "65 минут", "description": "Горный велосипед"},
-      {"activity": "плавание", "amount": "65 минут", "description": "Плавание на спине"}
+      {"activity": "отжимания", "amount": "18", "description": "С хлопком <b>18 раз</b>"},
+      {"activity": "пресс", "amount": "25", "description": "Велосипед лежа <b>25 раз</b>"},
+      {"activity": "бег", "amount": "4", "description": "По пересеченной местности <b>4 км</b>"},
+      {"activity": "велосипед", "amount": "10", "description": "Горный велосипед <b>10 км</b>"},
+      {"activity": "плавание", "amount": "2", "description": "Плавание на спине <b>2 км</b>"}
     ]
   },
   {
     "day": 9,
     "tasks": [
-      {"activity": "приседания", "amount": "35 раз", "description": "Сумо с широкой постановкой"},
-      {"activity": "подтягивания", "amount": "18 раз", "description": "С негативными повторениями"},
-      {"activity": "ходьба", "amount": "55 минут", "description": "С утяжелителями"},
-      {"activity": "велосипед", "amount": "70 минут", "description": "Спринтерские интервалы"},
-      {"activity": "плавание", "amount": "70 минут", "description": "С лопатками"}
+      {"activity": "приседания", "amount": "35", "description": "Сумо с широкой постановкой <b>35 раз</b>"},
+      {"activity": "подтягивания", "amount": "18", "description": "С негативными повторениями <b>18 раз</b>"},
+      {"activity": "ходьба", "amount": "4.5", "description": "Непрерывная ходьба <b>4.5 км</b>"},
+      {"activity": "велосипед", "amount": "12", "description": "Спринтерские интервалы <b>12 км</b>"},
+      {"activity": "плавание", "amount": "2.5", "description": "Кроль <b>2.5 км</b>"}
     ]
   },
   {
